@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+  text: string;
+  logo: string;
+}
+
+const { text, logo } = Astro.props;
+---
+
+<li class="flex items-center gap-4">
+  <span
+    class="w-11 h-11 flex items-center justify-center border-t dark:border-zinc-700 border-transparent shadow dark:shadow-none bg-white dark:bg-zinc-800 rounded-full"
+    ><Icon name={logo} class="w-6" />
+  </span>
+  <span class="dark:text-zinc-400 text-zinc-600">{text}</span>
+</li>
+
+<style is:global>
+  [astro-icon="simple-icons:astro"] {
+    @apply dark:text-white;
+  }
+</style>

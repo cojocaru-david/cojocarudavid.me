@@ -1,0 +1,41 @@
+{
+  "name": "davidcojocaru",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "format": "prettier -w '**/*.{js,jsx,cjs,ts,tsx,astro}'",
+    "preview": "astro preview",
+    "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
+    "github:contributions": "tsm scripts/generate-contributions-list.ts"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@fontsource-variable/inter": "^5.0.8",
+    "@fontsource/inter": "^5.0.8",
+    "@resvg/resvg-js": "^2.4.1",
+    "@tailwindcss/typography": "^0.5.10",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "astro": "^3.2.0",
+    "astro-expressive-code": "^0.26.1",
+    "astro-icon": "^0.8.1",
+    "eslint": "^8.50.0",
+    "eslint-plugin-astro": "^0.29.0",
+    "prettier-plugin-astro": "^0.12.0",
+    "satori": "^0.10.8",
+    "satori-html": "^0.3.2",
+    "sharp": "^0.32.6",
+    "tsm": "^2.3.0"
+  },
+  "dependencies": {
+    "@octokit/core": "^4.2.4",
+    "astro-compress": "^2.0.15",
+    "tailwindcss": "^3.3.3",
+    "vite-plugin-compress": "^2.1.1",
+    "vite-plugin-pwa": "^0.16.5"
+  }
+}

@@ -1,0 +1,112 @@
+---
+import Link from "@components/Link.astro";
+import { twitter, author, defaultMeta } from "@data/socials";
+import navigation from "@data/navigation.json";
+import "@fontsource-variable/inter";
+import Footer from "@components/Footer.astro";  
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: {
+    src: string;
+    alt: string;
+  };
+  pubDate?: Date;
+  tags?: string[];
+}
+
+const {
+  title = defaultMeta.title,
+  description = defaultMeta.description,
+  ogImage = defaultMeta.ogImage,
+  pubDate,
+  tags,
+} = Astro.props;
+
+const ogImageURL = new URL(ogImage.src, Astro.site).href;
+const canonicalURL = new URL(Astro.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content={author} />
+    <meta property="og:image:alt" content={ogImage.alt} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta name="twitter:site" content={twitter} />
+    <meta name="twitter:creator" content={twitter} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageURL} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="follow, index" />
+    {
+      tags && tags.map((tag) => (
+        <meta property="article:tag" content={tag} />
+      ))
+    }
+    <meta name="author" content={author} />
+    <meta name="pubdate" content={pubDate} />
+    <meta name="lastmod" content={Astro.lastmod} />
+    <meta name="date" content={Astro.date} />
+    <meta name="keywords" content={tags} />
+  </head>
+  <body
+    class="dark:bg-zinc-900 bg-zinc-100 antialiased selection:bg-blue-300 selection:text-zinc-900 dark:selection:bg-blue-600 dark:selection:text-white 2xl:text-lg"
+  >
+
+    <nav
+      class="sticky top-0 z-10 backdrop-blur-lg bg-zinc-900 dark:bg-opacity-50 bg-opacity-50 py-4 px-6 lg:px-0"
+    >
+      <ul class="flex justify-center space-x-4 text-sm">
+        {
+          navigation.map((item) => (
+            <li>
+              <Link {...item} addClass="font-lg font-medium" />
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <main class="px-6 lg:px-0 mx-auto max-w-3xl flex flex-col min-h-screen py-6" id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  nav {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  nav::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  body, html {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  body::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  .dark .dark\:bg-zinc-900 {
+    background-color: #1f2937;
+  }
+</style>

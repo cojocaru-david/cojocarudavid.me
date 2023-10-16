@@ -1,0 +1,58 @@
+---
+import AppLayout from "@layouts/AppLayout.astro";
+import Header from "@components/Header.astro";
+import data from "@data/contributions.json";
+import ProjectCard from "@components/ProjectCard.astro";
+
+interface Project {
+  name: string;
+  description: string;
+  stars: number;
+  role: "author" | "contributor" | "maintainer";
+  url: string;
+  languages: string[];
+}
+
+const openSourceContributions = data as Project[];
+
+openSourceContributions.sort((a, b) => {
+  if (a.role === "maintainer" && b.role !== "maintainer") {
+    return -1;
+  }
+  if (a.role === "maintainer" && b.role === "maintainer") {
+    return a.stars > b.stars ? -1 : 1;
+  }
+  if (a.role === "author" && b.role === "author") {
+    return a.stars > b.stars ? -1 : 1;
+  }
+  if (a.role === "author" && b.role !== "author") {
+    return -1;
+  }
+  return 0;
+});
+---
+
+<AppLayout title="David Cojocaru - Projects">
+  <Header title="Open Source" />
+  <p
+    class="max-w-prose mb-10 font-normal dark:text-zinc-400 text-zinc-600 leading-relaxed"
+  >
+    I love open source and I have been contributing to different projects for
+    the some time. Here is a list of projects that I have contributed to and
+    authored.
+  </p>
+  <ul class="grid grid-cols-1 gap-8">
+    {
+      openSourceContributions.map((project) => (
+        <ProjectCard
+          name={project.name}
+          description={project.description}
+          stars={project.stars}
+          role={project.role}
+          url={project.url}
+          languages={project.languages}
+        />
+      ))
+    }
+  </ul>
+</AppLayout>

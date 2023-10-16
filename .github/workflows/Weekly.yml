@@ -1,0 +1,47 @@
+name: Weekly
+
+on:
+  schedule:
+      - cron:  '50 7 * * 1'
+  workflow_dispatch:
+
+jobs:
+  integrations:
+    name: Generate Contributions list
+    if: github.repository_owner == 'cojocaru-david'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code using Git
+        uses: actions/checkout@v3
+        
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run generate contribution list script
+        run: pnpm run github:contributions
+        env:
+          GITHUB_TOKEN: ${{ secrets.CONTRIBUTIONS_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update contributions list
+          title: Update contributions list
+          body: |
+            This PR was created by the GitHub Actions workflow **Weekly**. 
+
+            The commit hash is _${{ github.sha }}_.
+          branch: contributions-list
+          delete-branch: true

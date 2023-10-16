@@ -1,0 +1,83 @@
+[
+  {
+    "logo":"simple-icons:astro",
+    "text":"Astro"
+  },
+  {
+    "logo":"logos:react",
+    "text":"React"
+  },
+  {
+    "logo":"logos:nodejs-icon",
+    "text":"Node.js"
+  },
+  {
+    "logo":"logos:tailwindcss-icon",
+    "text":"Tailwind CSS"
+  },
+  {
+    "logo":"logos:figma",
+    "text":"Figma"
+  },
+  {
+    "logo":"logos:visual-studio-code",
+    "text":"VS Code"
+  },
+  {
+    "logo":"logos:discord-icon",
+    "text":"Discord"
+  },
+  {
+    "logo":"logos:linux-tux",
+    "text":"Linux"
+  },
+  {
+    "text": "Nginx",
+    "logo": "logos:nginx"
+  },
+  {
+    "text": "DigitalOcean",
+    "logo": "logos:digital-ocean"
+  },
+  {
+    "text": "Cloudflare",
+    "logo": "logos:cloudflare"
+  },
+  {
+    "text": "Git",
+    "logo": "logos:git-icon"
+  },
+  {
+    "text": "Netlify",
+    "logo": "logos:netlify"
+  },
+
+  {
+    "text": "Lua",
+    "logo": "logos:lua" 
+  },
+  {
+    "text": "JavaScript",
+    "logo": "logos:javascript"
+  },
+  {
+    "text": "HTML",
+    "logo": "logos:html-5"
+  },
+  {
+    "text": "CSS",
+    "logo": "logos:css-3"
+  },
+  {
+    "text": "Markdown",
+    "logo": "logos:markdown"
+  },
+  {
+    "text": "PHP",
+    "logo": "logos:php"
+  },
+  {
+    "text": "Go",
+    "logo": "logos:go"
+  }
+]

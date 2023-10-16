@@ -1,0 +1,27 @@
+---
+interface Props {
+  text: string;
+  color: keyof typeof colors;
+}
+const { text, color } = Astro.props;
+const colors = {
+  blue: "bg-blue-700 text-blue-200",
+  red: "bg-red-700 text-red-200",
+  green: "dark:bg-green-700 bg-green-200 dark:text-green-100 text-green-800",
+  indigo:
+    "dark:bg-indigo-700 dark:text-indigo-200 bg-indigo-200 text-indigo-700",
+  yellow: "bg-yellow-700 text-yellow-200",
+  purple: "bg-purple-700 text-purple-200",
+  pink: "bg-pink-700 text-pink-200",
+  "gradient-indigo":
+    "bg-gradient-to-r dark:from-blue-600 from-blue-500 dark:to-purple-600 to-purple-500 text-white ",
+  "gradient-pink":
+    "bg-gradient-to-r dark:from-fuchsia-600 from-fuchsia-500 to-pink-500 dark:to-pink-600 text-white",
+} as const;
+---
+
+<span
+  class={`${colors[color]} max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal sm:mt-0`}
+>
+  {text}
+</span>

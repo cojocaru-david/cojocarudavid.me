@@ -1,0 +1,61 @@
+---
+import AppLayout from "@layouts/AppLayout.astro";
+import { Image } from "astro:assets";
+import authorImage from "../assets/me.png";
+import technologies from "@data/technologies.json";
+import Skill from "@components/Skill.astro";
+import { author } from "@data/socials";
+---
+
+<AppLayout>
+  <header class="sm:flex sm:items-center sm:justify-between">
+    <Image
+      src={authorImage}
+      class="rounded aspect-square w-40 overflow-hidden inline-flex"
+      alt="Image of the author"
+      loading="eager"
+      width={320}
+      height={320}
+    />
+    <div class="mt-8 max-w-lg 2xl:max-w-xl sm:my-0 sm:order-first">
+      <h1
+        class="mb-2 text-3xl font-bold tracking-tight dark:text-white text-zinc-900 sm:text-4xl"
+      >
+        {author}
+      </h1>
+      <p class="mb-4 dark:text-zinc-300 text-zinc-700 flex items-center">
+       A 16 year old developer from Romania 
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.18 38.4" class="inline-block w-6 h-6 ml-2">
+         <path d="M17.75 0v38.4H3.03C1.37 38.4 0 37.04 0 35.37V3.03C0 1.36 1.37 0 3.03 0h14.72z" fill="#002b7f"/>
+         <path fill="#fcd116" d="M37.45 0v38.4h-19.7V0h19.7z"/>
+         <path d="M37.45 38.4V0h14.72c1.67 0 3.03 1.36 3.03 3.03v32.33c0 1.67-1.37 3.03-3.03 3.03H37.45v.01z" fill="#ce1126"/>
+       </svg>
+       
+      </p>
+      <p
+        class="max-w-prose font-normal dark:text-zinc-400 text-zinc-600 sm:max-w-sm md:max-w-xl leading-relaxed"
+      >
+        I am a self-taught developer who loves to build things for the web. I
+        started coding when I was 13 and since then I have been learning and
+        building projects.
+      </p>
+    </div>
+  </header>
+  <section class="mt-10 sm:mt-14" aria-labelledby="section-title">
+    <h2
+      class="dark:text-zinc-300 text-zinc-700 mb-4 text-2xl font-bold tracking-tight"
+      id="section-title"
+    >
+      Favorite technologies
+    </h2>
+    <p
+      class="max-w-prose mb-8 font-normal dark:text-zinc-400 text-zinc-600 leading-relaxed"
+    >
+      I have been working with a lot of technologies, but these are the ones I
+      enjoy the most.
+    </p>
+    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 row-gap-8 sm:row-gap-10 border-t border-zinc-200 dark:border-zinc-700 pt-4 sm:pt-6 lg:pt-8">
+      {technologies.map((tech) => <Skill text={tech.text} logo={tech.logo} />)}
+    </ul>
+  </section>
+</AppLayout>

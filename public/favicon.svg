@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 32 32">
+  <rect fill="none" class="logo-background-square"/>
+  <linearGradient id="a" gradientTransform="rotate(15)">
+    <stop offset="0%" stop-color="#5106FF"/>
+    <stop offset="100%" stop-color="#61CBF2"/>
+  </linearGradient>
+  <path fill="url(#a)" d="M16 19.586l7.496-12.954H8.504zm-8.504-7.172L0 25.368h14.992zm17.008 0-7.496 12.954H32z " />
+
+  <style>
+        .logo-background-square {
+          fill: transparent;
+          width: 100%;
+          height: 100%;
+        }
+
+        .logo {
+          width: 100%;
+          height: 100%;
+        }
+    </style>
+</svg>

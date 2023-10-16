@@ -1,0 +1,103 @@
+---
+import AppLayout from "@layouts/AppLayout.astro";
+import Pagination from "@components/Pagination.astro";
+import { Image } from "astro:assets";
+import authorImage from "../assets/me.png";
+import type { ImageMetadata } from "astro";
+import { author, twitter } from "@data/socials";
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  pubDate: Date;
+  url: string;
+  updatedDate: Date | undefined;
+  tags: string[];
+}
+
+const { title, description, image, imageAlt, pubDate, url, updatedDate, tags } =
+  Astro.props;
+
+const ogImage = {
+  src: `/image/${url}.png`,
+  alt: title,
+};
+
+const fullPubDate = pubDate.toLocaleDateString("en", {
+  dateStyle: "full",
+});
+
+const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<AppLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  pubDate={updatedDate ?? pubDate}
+  tags={tags}
+>
+  <header class="flex flex-col mb-8">
+    <time
+      datetime={pubDate.toISOString()}
+      class="block text-center dark:text-zinc-400 text-zinc-600 mb-4 text-sm sm:text-base"
+    >
+      {fullPubDate}
+    </time>
+    <h1
+      class="text-2xl sm:text-4xl pb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-purple-500"
+    >
+      {title}
+    </h1>
+    <div class="inline-flex gap-2 justify-center items-center mb-8">
+      <div class="aspect-square rounded-full overflow-hidden">
+        <Image
+          src={authorImage}
+          alt="Image of the author"
+          loading="eager"
+          class="aspect-square w-10"
+          width={80}
+          height={80}
+        />
+      </div>
+      <p class="dark:text-zinc-400 text-zinc-700 text-sm">
+        <span class="block font-semibold">{author}</span>
+        <a
+          class="dark:text-blue-400 text-blue-600 hover:underline block"
+          href="https://github.com/cojocaru-david/cojocarudavid.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{twitter}
+        </a>
+      </p>
+    </div>
+    <Image
+      src={image}
+      alt={imageAlt}
+      loading="eager"
+      class="rounded-lg"
+      width={1200}
+      height={630}
+    />
+  </header>
+  {
+    updatedDate && (
+      <article class="dark:text-blue-300 py-2 px-4 mb-6 rounded-md text-sm sm:text-base border border-blue-400 transition-all bg-blue-600/20">
+        <span class="font-semibold">Last updated: </span>
+        {fullUpdatedDate}
+      </article>
+    )
+  }
+  <article
+    class="prose dark:prose-invert lg:prose-lg dark:prose-code:text-zinc-300 dark:prose-a:text-blue-400 prose-a:text-blue-600 max-w-none hover:prose-a:underline focus:prose-a:underline prose-a:no-underline dark:prose-headings:text-teal-500 prose-img:rounded-lg"
+  >
+    <slot />
+  </article>
+  <Pagination />
+</AppLayout>

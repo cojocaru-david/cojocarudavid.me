@@ -1,0 +1,36 @@
+---
+import AppLayout from "@layouts/AppLayout.astro";
+import BlogCard from "@components/BlogCard.astro";
+import Header from "@components/Header.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const title = "David Cojocaru - Blog";
+const description =
+  "My personal collection of code snippets, starter guides, tutorials and interesting things I found online. I hope you find something useful here.";
+---
+
+<AppLayout title={title} description={description}>
+  <Header title="Blog" />
+  <p
+    class="max-w-prose mb-10 font-normal dark:text-zinc-400 text-zinc-600 leading-relaxed"
+  >
+    {description}
+  </p>
+  <ul class="space-y-8">
+    {
+      posts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          pubDate={post.data.pubDate}
+          description={post.data.description}
+          url={`/blog/${post.slug}/`}
+          tags={post.data.tags}
+        />
+      ))
+    }
+  </ul>
+</AppLayout>

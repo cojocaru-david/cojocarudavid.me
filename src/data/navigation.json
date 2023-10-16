@@ -1,0 +1,20 @@
+[
+  {
+    "href": "/",
+    "text": "Home"
+  },
+  {
+    "href": "/projects/",
+    "text": "Projects"
+  },
+  {
+    "href": "/blog/",
+    "text": "Blog"
+  },
+  {
+    "href": "https://github.com/cojocaru-david/cojocarudavid.me",
+    "target": "_blank",
+    "rel": "noopener noreferrer",
+    "text": "GitHub"
+  }
+]
