@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import { readFileSync } from "node:fs";
 import expressiveCode from "astro-expressive-code";
 import compress from "vite-plugin-compress";
-import netlify from '@astrojs/netlify/functions';
 
 /** @type {import('astro-expressive-code').AstroExpressiveCodeOptions} */
 const astroExpressiveCodeOptions = {
@@ -25,8 +24,7 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"]
     }
-  },
-  adapter: netlify()
+  }
 });
 
 // vite plugin to import fonts
