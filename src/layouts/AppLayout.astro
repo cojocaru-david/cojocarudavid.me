@@ -86,9 +86,21 @@ const canonicalURL = new URL(Astro.url).href;
     <main class="px-6 lg:px-0 mx-auto max-w-3xl flex flex-col min-h-screen py-6" id="main-content">
       <slot />
     </main>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GQ8HDJ8L1"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+    
+      gtag("config", "G-1GQ8HDJ8L1");
+    </script>
     <Footer />
   </body>
 </html>
+
 <style>
   nav {
     -ms-overflow-style: none; /* Internet Explorer 10+ */
