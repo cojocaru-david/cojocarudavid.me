@@ -14,8 +14,8 @@ jobs:
       - name: Check out code using Git
         uses: actions/checkout@v3
         
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
+      - name: Setup Java
+        uses: actions/setup-java@v2
         with:
           version: 8
 
@@ -23,13 +23,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: pnpm
+          cache: npm
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Run generate contribution list script
-        run: pnpm run github:contributions
+        run: npm run github:contributions
         env:
           GITHUB_TOKEN: ${{ secrets.CONTRIBUTIONS_TOKEN }}
 
