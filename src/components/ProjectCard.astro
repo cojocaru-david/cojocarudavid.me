@@ -9,6 +9,7 @@ interface Props {
   description: string | null;
   stars: number;
   languages: string[];
+  website: string | null;
 }
 
 const colors = {
@@ -17,7 +18,7 @@ const colors = {
   contributor: "green",
 } as const;
 
-const { name, role, url, description, stars, languages } = Astro.props;
+const { name, role, url, description, stars, languages, website } = Astro.props;
 ---
 
 <li
@@ -32,7 +33,8 @@ const { name, role, url, description, stars, languages } = Astro.props;
       </h2>
       <Badge text={role} color={colors[role]} />
     </div>
-    <a
+    <div class="flex gap-2">
+      <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
@@ -43,6 +45,21 @@ const { name, role, url, description, stars, languages } = Astro.props;
         class="w-6 fill-current dark:hover:text-zinc-300 hover:text-zinc-600 hover:scale-110 transition-all"
       />
     </a>
+    {website && (
+      <a
+        href={website}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Open ${name} website in a new tab`}
+      >
+        <Icon
+          name="mdi:web"
+          class="w-6 fill-current dark:hover:text-zinc-300 hover:text-zinc-600 hover:scale-110 transition-all"
+        />
+      </a>
+    )}
+    </div>
+    
   </div>
   <div class="flex gap-2">
     <svg

@@ -14,14 +14,14 @@ const colors = {
   purple: "bg-purple-700 text-purple-200",
   pink: "bg-pink-700 text-pink-200",
   "gradient-indigo":
-    "bg-gradient-to-r dark:from-blue-600 from-blue-500 dark:to-purple-600 to-purple-500 text-white ",
+    "bg-gradient-to-r dark:from-indigo-600 from-indigo-500 dark:to-sky-400 to-sky-500 text-white ",
   "gradient-pink":
     "bg-gradient-to-r dark:from-fuchsia-600 from-fuchsia-500 to-pink-500 dark:to-pink-600 text-white",
 } as const;
 ---
 
 <span
-  class={`${colors[color]} max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal sm:mt-0`}
+  class={`${colors[color]} max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal`}
 >
   {text}
 </span>

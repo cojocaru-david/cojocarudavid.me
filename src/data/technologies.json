@@ -1,5 +1,21 @@
 [
   {
+    "text": "JavaScript",
+    "logo": "logos:javascript"
+  },
+  {
+    "text": "HTML",
+    "logo": "logos:html-5"
+  },
+  {
+    "text": "CSS",
+    "logo": "logos:css-3"
+  },
+  {
+    "text": "PHP",
+    "logo": "logos:php"
+  },
+  {
     "logo":"simple-icons:astro",
     "text":"Astro"
   },
@@ -55,26 +71,6 @@
   {
     "text": "Lua",
     "logo": "logos:lua" 
-  },
-  {
-    "text": "JavaScript",
-    "logo": "logos:javascript"
-  },
-  {
-    "text": "HTML",
-    "logo": "logos:html-5"
-  },
-  {
-    "text": "CSS",
-    "logo": "logos:css-3"
-  },
-  {
-    "text": "Markdown",
-    "logo": "logos:markdown"
-  },
-  {
-    "text": "PHP",
-    "logo": "logos:php"
   },
   {
     "text": "Go",

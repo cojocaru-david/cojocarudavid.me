@@ -8,8 +8,7 @@
     "build": "astro build",
     "format": "prettier -w '**/*.{js,jsx,cjs,ts,tsx,astro}'",
     "preview": "astro preview",
-    "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
-    "github:contributions": "tsm scripts/generate-contributions-list.ts"
+    "lint": "eslint . --max-warnings 0 --report-unused-disable-directives"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.0.0",
