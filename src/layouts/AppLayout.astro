@@ -38,7 +38,7 @@ const canonicalURL = new URL(Astro.url).href;
     <link rel="canonical" href={canonicalURL} />
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="blog" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -46,20 +46,23 @@ const canonicalURL = new URL(Astro.url).href;
     <meta property="og:site_name" content={author} />
     <meta property="og:image:alt" content={ogImage.alt} />
     <meta property="og:locale" content="en_US" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta name="twitter:site" content={twitter} />
-    <meta name="twitter:creator" content={twitter} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://cojocarudavid.me" />
+    <meta name="twitter:creator" content={author} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={ogImage.alt} />
+    <meta name="twitter:domain" content="cojocarudavid.me" />
+    <meta name="theme-color" content="#60A5FA" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-title" content={title} />
+    <meta name="application-name" content={title} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
-    {
-      tags && tags.map((tag) => (
-        <meta property="article:tag" content={tag} />
-      ))
-    }
+{
+  tags && tags.map((tag) => ( <meta property="article:tag" content={tag} /> ))
+}
     <meta name="author" content={author} />
     <meta name="pubdate" content={pubDate} />
     <meta name="lastmod" content={Astro.lastmod} />
@@ -85,6 +88,7 @@ const canonicalURL = new URL(Astro.url).href;
     </nav>
     <main class="px-6 lg:px-0 mx-auto max-w-3xl flex flex-col min-h-screen py-6" id="main-content">
       <slot />
+      <Footer />
     </main>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GQ8HDJ8L1"></script>
@@ -97,7 +101,6 @@ const canonicalURL = new URL(Astro.url).href;
     
       gtag("config", "G-1GQ8HDJ8L1");
     </script>
-    <Footer />
   </body>
 </html>
 

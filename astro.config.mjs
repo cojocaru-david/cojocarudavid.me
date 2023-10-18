@@ -18,7 +18,7 @@ export default defineConfig({
   image: {
     service: sharpImageService()
   },
-  site: "http://localhost:4321",
+  site: "https://cojocarudavid.me",
   vite: {
     plugins: [rawFonts([".ttf", ".woff"])],
     optimizeDeps: {
