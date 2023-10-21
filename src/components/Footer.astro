@@ -1,14 +1,12 @@
 <script>
+    const start = performance.now();
     const year = document.getElementById('year');
     const elapsedTime = document.getElementById('elapsedTime');
 
     year.innerText = new Date().getFullYear();
-
-    const start = performance.now();
-
     window.addEventListener('load', () => {
         const end = performance.now();
-        elapsedTime.innerText = Math.round(end - start);
+        elapsedTime.innerText = `Page loaded in ${Math.round(end - start)}ms`;
     });
 </script>
 
@@ -17,8 +15,8 @@
         2021 - <span id="year"></span>
         &copy;&nbsp;<a href="https://github.com/cojocaru-david" class="text-zinc-200 hover:text-zinc-500">David Cojocaru</a>
     </div>
-    <p class="text-sm text-center">
+    <p class="text-sm text-center flex flex-col items-center">
         All rights reserved.
-        <span id="elapsedTime" class="text-zinc-400"></span>ms
+        <span id="elapsedTime" class="text-zinc-400"></span>
     </p>
 </footer>
