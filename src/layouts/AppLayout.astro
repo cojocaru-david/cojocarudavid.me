@@ -20,7 +20,7 @@ interface Props {
 }
 
 const {
-  title = defaultMeta.title,
+  title,
   description = defaultMeta.description,
   ogImage = defaultMeta.ogImage,
   pubDate,
@@ -40,7 +40,7 @@ const date = pubDate || lastmod || new Date();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
+    <title>{title || defaultMeta.title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="title" content={title} />

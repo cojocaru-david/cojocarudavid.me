@@ -4,7 +4,7 @@ import Pagination from "@components/Pagination.astro";
 import { Image } from "astro:assets";
 import authorImage from "../assets/me.png";
 import type { ImageMetadata } from "astro";
-import { author, twitter } from "@data/socials";
+import { author, tag } from "@data/socials";
 
 interface Props {
   title: string;
@@ -74,7 +74,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
           href="https://github.com/cojocaru-david/cojocarudavid.me"
           target="_blank"
           rel="noopener noreferrer"
-          >{twitter}
+          >{tag}
         </a>
       </p>
     </div>

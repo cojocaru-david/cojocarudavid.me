@@ -9,8 +9,7 @@ import compressor from "astro-compressor";
 export default defineConfig({
   integrations: [tailwind(), compressor(), mdx()],
   image: {
-    service: sharpImageService(),
-    formats: ["avif", "webp", "jpeg"]
+    service: sharpImageService()
   },
   site: "https://cojocarudavid.me",
   vite: {
