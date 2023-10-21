@@ -4,7 +4,13 @@ export const author = "David Cojocaru";
 export const defaultMeta = {
   title: "David Cojocaru - Home",
   description:
-    "David Cojocaru's personal website. I write about web development, open source, and more. I'm learning in public. Join me on my journey! 🚀",
+    "My name is David Cojocaru, a 16-year-old coding enthusiast hailing from Romania. With a wide-ranging skill set, he's the craftsman of captivating digital solutions at the intersection of web development and cybersecurity.",
+  keywords: [
+    "technologies", "projects", "david", "cojocaru", "davidcojocaru", "developer", "romania",
+    "web", "development", "cybersecurity", "cyber", "security", "coding", "coding enthusiast",
+    "software", "nginx", "nodejs", "javascript", "typescript", "react", "nextjs", "tailwindcss",
+    "css", "html", "blog", "portfolio", "website", "personal", "personal website", "personal blog"
+  ],
   ogImage: {
     src: "/static/banner.png",
     alt: "David Cojocaru - Home",
