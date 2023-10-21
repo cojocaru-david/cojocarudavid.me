@@ -1,0 +1,24 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4e00cc30, #1e80ff60);
+  transition: background 0.4s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    transition: background 0.4s;
+  background: linear-gradient(180deg, #4e00cc70, #1e80ff70);
+}

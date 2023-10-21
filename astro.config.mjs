@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import { readFileSync } from "node:fs";
 import expressiveCode from "astro-expressive-code";
-import compress from "vite-plugin-compress";
+import compress from "astro-compress";
 
 /** @type {import('astro-expressive-code').AstroExpressiveCodeOptions} */
 const astroExpressiveCodeOptions = {
@@ -14,15 +14,19 @@ const astroExpressiveCodeOptions = {
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), expressiveCode(astroExpressiveCodeOptions), compress()],
+  integrations: [tailwind(), sitemap(), expressiveCode(astroExpressiveCodeOptions)],
   image: {
     service: sharpImageService()
   },
   site: "https://cojocarudavid.me",
+  buildOptions: {
+    sitemap: true
+  },
   vite: {
-    plugins: [rawFonts([".ttf", ".woff"])],
+    plugins: [rawFonts([".ttf", ".woff"]),compress()],
     optimizeDeps: {
-      exclude: ["@resvg/resvg-js"]
+      exclude: ["@resvg/resvg-js"],
+      include: ["@astrojs/tailwind"]
     }
   }
 });

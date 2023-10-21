@@ -5,6 +5,7 @@ import navigation from "@data/navigation.json";
 import "@fontsource-variable/inter";
 import Footer from "@components/Footer.astro";  
 import { ViewTransitions } from 'astro:transitions';
+import "@styles/global.css";
 
 interface Props {
   title?: string;
@@ -35,11 +36,10 @@ const date = pubDate || lastmod || new Date();
 <!doctype html>
 <html lang="en"
       class="overflow-x-hidden break-words bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 [color-scheme:dark] [word-break:break-word]"
-      prefix="og: http://ogp.me/ns#"
 >
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
@@ -62,12 +62,17 @@ const date = pubDate || lastmod || new Date();
     <meta name="twitter:image:alt" content={ogImage.alt} />
     <meta name="twitter:domain" content="cojocarudavid.me" />
     <meta name="theme-color" content="#60A5FA" />
+    <meta name="msapplication-TileColor" content="#60A5FA">
     <meta name="color-scheme" content="light dark" />
     <meta name="apple-mobile-web-app-title" content={title} />
     <meta name="application-name" content={title} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
-    <ViewTransitions />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- <ViewTransitions /> -->
 {
   tags && tags.map((tag) => ( <meta property="article:tag" content={tag} /> ))
 }
@@ -111,25 +116,3 @@ const date = pubDate || lastmod || new Date();
     </script>
   </body>
 </html>
-
-<style>
-  nav {
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
-  }
-  nav::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
-  body, html {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-  }
-
-  body::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
-
-  .dark .dark\:bg-zinc-900 {
-    background-color: #1f2937;
-  }
-</style>
