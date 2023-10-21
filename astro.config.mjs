@@ -2,14 +2,11 @@ import { defineConfig, sharpImageService } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import { readFileSync } from "node:fs";
 import mdx from '@astrojs/mdx';
-import preact from "@astrojs/preact";
-
-
 import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), compressor(), mdx(), preact()],
+  integrations: [tailwind(), compressor(), mdx()],
   image: {
     service: sharpImageService()
   },
