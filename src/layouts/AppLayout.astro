@@ -94,7 +94,7 @@ const date = pubDate || lastmod || new Date();
         {
           navigation.map((item) => (
             <li>
-              <Link {...item} addClass="font-lg font-medium" client:visible />
+              <Link {...item} addClass="font-lg font-medium" />
             </li>
           ))
         }
@@ -102,7 +102,7 @@ const date = pubDate || lastmod || new Date();
     </nav>
     <main class="px-6 lg:px-0 mx-auto max-w-3xl flex flex-col min-h-screen py-6" id="main-content">
       <slot />
-      <Footer client:visible />
+      <Footer />
     </main>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GQ8HDJ8L1"></script>
