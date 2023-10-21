@@ -1,7 +1,4 @@
-User-agent: Googlebot-Image
-Disallow: /_astro/
-
 User-agent: *
 Allow: /
 
-Sitemap: http://davidcojocaru.me/sitemap-index.xml
+Sitemap: https://cojocarudavid.me/sitemap-index.xml

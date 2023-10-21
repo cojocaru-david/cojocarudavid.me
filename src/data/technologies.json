@@ -1,79 +1,114 @@
-[
-  {
-    "text": "JavaScript",
-    "logo": "logos:javascript"
-  },
-  {
-    "text": "HTML",
-    "logo": "logos:html-5"
-  },
-  {
-    "text": "CSS",
-    "logo": "logos:css-3"
-  },
-  {
-    "text": "PHP",
-    "logo": "logos:php"
-  },
-  {
-    "logo":"simple-icons:astro",
-    "text":"Astro"
-  },
-  {
-    "logo":"logos:react",
-    "text":"React"
-  },
-  {
-    "logo":"logos:nodejs-icon",
-    "text":"Node.js"
-  },
-  {
-    "logo":"logos:tailwindcss-icon",
-    "text":"Tailwind CSS"
-  },
-  {
-    "logo":"logos:figma",
-    "text":"Figma"
-  },
-  {
-    "logo":"logos:visual-studio-code",
-    "text":"VS Code"
-  },
-  {
-    "logo":"logos:discord-icon",
-    "text":"Discord"
-  },
-  {
-    "logo":"logos:linux-tux",
-    "text":"Linux"
-  },
-  {
-    "text": "Nginx",
-    "logo": "logos:nginx"
-  },
-  {
-    "text": "DigitalOcean",
-    "logo": "logos:digital-ocean"
-  },
-  {
-    "text": "Cloudflare",
-    "logo": "logos:cloudflare"
-  },
-  {
-    "text": "Git",
-    "logo": "logos:git-icon"
-  },
-  {
-    "text": "Netlify",
-    "logo": "logos:netlify"
-  },
-
-  {
-    "text": "Lua",
-    "logo": "logos:lua" 
-  },
-  {
-    "text": "Go",
-    "logo": "logos:go"
-  }
-]
+{
+  "Web Development": [
+    {
+      "text": "HTML",
+      "logo": "mdi:language-html5"
+    },
+    {
+      "text": "JavaScript",
+      "logo": "mdi:language-javascript"
+    },
+    {
+      "text": "CSS",
+      "logo": "mdi:language-css3"
+    },
+    {
+      "text": "PHP",
+      "logo": "mdi:language-php"
+    },
+    {
+      "text": "Astro",
+      "logo": "simple-icons:astro"
+    },
+    {
+      "text": "Tailwind CSS",
+      "logo": "mdi:tailwind"
+    }
+  ],
+  "Development Tools": [
+    {
+      "text": "Visual Studio Code",
+      "logo": "mdi:visual-studio-code"
+    },
+    {
+      "text": "Git",
+      "logo": "mdi:git"
+    }
+  ],
+  "Hosting and Cloud Services": [
+    {
+      "text": "DigitalOcean",
+      "logo": "mdi:digital-ocean"
+    },
+    {
+      "text": "Cloudflare",
+      "logo": "cib:cloudflare"
+    },
+    {
+      "text": "Netlify",
+      "logo": "cib:netlify"
+    }
+  ],
+  "Operating Systems": [
+    {
+      "text": "Windows",
+      "logo": "mdi:windows"
+    },
+    {
+      "text": "Ubuntu",
+      "logo": "mdi:ubuntu"
+    }
+  ],
+  "Other Programming Languages and Technologies": [
+    {
+      "text": "Lua",
+      "logo": "mdi:language-lua"
+    },
+    {
+      "text": "Golang",
+      "logo": "mdi:language-go"
+    },
+    {
+      "text": "Node.js",
+      "logo": "mdi:nodejs"
+    }
+  ],
+  "Web Servers": [
+    {
+      "text": "Apache",
+      "logo": "cib:apache"
+    },
+    {
+      "text": "Nginx",
+      "logo": "cib:nginx"
+    }
+  ],
+  "Databases": [
+    {
+      "text": "MySQL",
+      "logo": "cib:mysql"
+    },
+    {
+      "text": "MongoDB",
+      "logo": "cib:mongodb"
+    }
+  ],
+  "Other Software": [
+    {
+      "text": "Discord",
+      "logo": "mdi:discord"
+    },
+    {
+      "text": "Spotify",
+      "logo": "mdi:spotify"
+    },
+    {
+      "text": "Visual Studio",
+      "logo": "mdi:visual-studio"
+    },
+    {
+      "text": "Brave",
+      "logo": "cib:brave"
+    }
+  ]
+}

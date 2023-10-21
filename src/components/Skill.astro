@@ -4,21 +4,16 @@ import { Icon } from "astro-icon";
 interface Props {
   text: string;
   logo: string;
+  key?: string;
 }
 
-const { text, logo } = Astro.props;
+const { text, logo, key } = Astro.props;
 ---
 
-<li class="flex items-center gap-4">
+<li class="flex items-center space-x-4 text-sm font-medium text-zinc-600 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-400" key={key}>
   <span
-    class="w-11 h-11 flex items-center justify-center border-t dark:border-zinc-700 border-transparent shadow dark:shadow-none bg-white dark:bg-zinc-800 rounded-full"
+    class="flex items-center justify-center w-10 h-10 rounded bg-zinc-100 dark:bg-zinc-800 bg-opacity-60 dark:bg-opacity-40 backdrop-filter backdrop-blur-sm"
     ><Icon name={logo} class="w-6" />
   </span>
   <span class="dark:text-zinc-400 text-zinc-600">{text}</span>
 </li>
-
-<style is:global>
-  [astro-icon="simple-icons:astro"] {
-    @apply dark:text-white;
-  }
-</style>

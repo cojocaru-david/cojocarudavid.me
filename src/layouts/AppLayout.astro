@@ -1,9 +1,10 @@
 ---
 import Link from "@components/Link.astro";
-import { twitter, author, defaultMeta } from "@data/socials";
+import { author, defaultMeta } from "@data/socials";
 import navigation from "@data/navigation.json";
 import "@fontsource-variable/inter";
 import Footer from "@components/Footer.astro";  
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title?: string;
@@ -14,6 +15,7 @@ interface Props {
   };
   pubDate?: Date;
   tags?: string[];
+  lastmod?: Date;
 }
 
 const {
@@ -22,14 +24,19 @@ const {
   ogImage = defaultMeta.ogImage,
   pubDate,
   tags,
+  lastmod,
 } = Astro.props;
 
 const ogImageURL = new URL(ogImage.src, Astro.site).href;
 const canonicalURL = new URL(Astro.url).href;
+const date = pubDate || lastmod || new Date();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en"
+      class="overflow-x-hidden break-words bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 [color-scheme:dark] [word-break:break-word]"
+      prefix="og: http://ogp.me/ns#"
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -60,19 +67,20 @@ const canonicalURL = new URL(Astro.url).href;
     <meta name="application-name" content={title} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
+    <ViewTransitions />
 {
   tags && tags.map((tag) => ( <meta property="article:tag" content={tag} /> ))
 }
     <meta name="author" content={author} />
-    <meta name="pubdate" content={pubDate} />
-    <meta name="lastmod" content={Astro.lastmod} />
-    <meta name="date" content={Astro.date} />
+    <meta name="pubdate" content={pubDate || "Fri Oct 20 2023 03:00:00 GMT+0300 (Eastern European Summer Time)"} />
+    <meta name="lastmod" content={lastmod} />
+    <meta name="date" content={date} /> 
     <meta name="keywords" content={tags} />
   </head>
   <body
     class="dark:bg-zinc-900 bg-zinc-100 antialiased selection:bg-blue-300 selection:text-zinc-900 dark:selection:bg-blue-600 dark:selection:text-white 2xl:text-lg"
-  >
-
+    style={{ background: "linear-gradient(45deg, rgba(96, 122, 250, 0) 20.79%, rgba(96, 122, 250, 0.09) 40.92%, rgba(255,255,255, 0) 70.35%)" }}
+    >
     <nav
       class="sticky top-0 z-10 backdrop-blur-lg bg-zinc-900 dark:bg-opacity-50 bg-opacity-50 py-4 px-6 lg:px-0"
     >

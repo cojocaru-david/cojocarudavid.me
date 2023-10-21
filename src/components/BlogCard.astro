@@ -18,7 +18,7 @@ const fullDate = pubDate.toLocaleDateString("en", {
 ---
 
 <li
-  class="dark:bg-zinc-800 bg-white dark:text-zinc-400 text-zinc-500 gap-1 p-6 border dark:border-zinc-700/60 rounded-lg flex flex-col"
+  class="dark:text-zinc-400 text-zinc-500 gap-1 p-6 border dark:border-zinc-700/60 rounded-lg flex flex-col bg-opacity-40 dark:bg-opacity-40 bg-zinc-50 dark:bg-zinc-800"
 >
   <a class="flex flex-col gap-2" href={url}>
     <div class="flex justify-between">
@@ -39,16 +39,18 @@ const fullDate = pubDate.toLocaleDateString("en", {
     <p class="text-sm dark:text-zinc-400 text-zinc-600 mt-2">
       {description}
     </p>
-    <ul class="flex flex-wrap gap-2 mt-2 text-zinc-600 text-center">
+    <div class="flex flex-wrap gap-2 mt-2 text-zinc-600 text-center">
       <p class="text-sm dark:text-zinc-400 text-zinc-600 text-center mt-1">
         Tags:
       </p>
-      {tags.map((tag) => (
-        <li class="dark:bg-zinc-700 bg-zinc-100 text-zinc-600 dark:text-zinc-300 rounded-md px-2 py-1 text-sm">
-          {tag}
-        </li>
-      ))}
-    </ul>
+      <ul class="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <li class="dark:bg-zinc-700 bg-zinc-100 text-zinc-600 dark:text-zinc-300 rounded-md px-2 py-1 text-sm">
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </div>
   </a>
 </li>
 

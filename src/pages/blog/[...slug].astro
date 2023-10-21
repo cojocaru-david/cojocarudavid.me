@@ -25,6 +25,8 @@ const { Content } = await post.render();
   url={post.slug}
   updatedDate={frontmatter.updatedDate}
   tags={frontmatter.tags}
+  author={frontmatter.author}
+  authorImage={frontmatter.authorImage}
 >
   <Content />
 </BlogLayout>
