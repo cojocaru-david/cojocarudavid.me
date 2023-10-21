@@ -72,7 +72,7 @@ const date = pubDate || lastmod || new Date();
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <!-- <ViewTransitions /> -->
+    <ViewTransitions />
 {
   tags && tags.map((tag) => ( <meta property="article:tag" content={tag} /> ))
 }
@@ -87,7 +87,7 @@ const date = pubDate || lastmod || new Date();
     style={{ background: "linear-gradient(45deg, rgba(96, 122, 250, 0) 20.79%, rgba(96, 122, 250, 0.09) 40.92%, rgba(255,255,255, 0) 70.35%)" }}
     >
     <nav
-      class="sticky top-0 z-10 backdrop-blur-lg bg-zinc-900 dark:bg-opacity-50 bg-opacity-50 py-4 px-6 lg:px-0"
+      class="sticky top-0 z-10 lg:backdrop-blur-lg bg-zinc-900 bg-opacity-90 lg:bg-opacity-50 py-4 px-6 lg:px-0"
     >
       <ul class="flex justify-center space-x-4 text-sm">
         {
