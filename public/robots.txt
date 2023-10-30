@@ -1,4 +1,4 @@
+Sitemap: https://cojocarudavid.me/sitemap-index.xml
+
 User-agent: *
 Allow: /
-
-Sitemap: https://cojocarudavid.me/sitemap-index.xml
