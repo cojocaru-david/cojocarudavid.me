@@ -5,7 +5,7 @@ import Header from "@components/Header.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => new Date() - new Date(a.data.pubDate)
 );
 
 const title = "David Cojocaru - Blog";

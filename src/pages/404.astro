@@ -25,9 +25,11 @@ const description = "Sorry, the page you are looking for does not exist.";
 </style>
 
 <AppLayout title={title} description={description}>
-  <div class="flex flex-col items-center justify-center h-screen">
+  <div class="flex flex-col items-center justify-center h-screen text-center text-zinc-300">
 
-    <h1 class="font-bold text-4xl mb-4 text-center">404</h1>
+    <h1 class="font-bold text-4xl mb-4 text-center">
+      404
+    </h1>
     <p class="text-xl font-thin text-center">{description}</p>
 
     <a class="px-4 py-2 mt-4 text-center bg-zinc-800 text-zinc-100 rounded-md cursor-pointer hover:bg-zinc-700 transition duration-200 ease-in-out" href="/">

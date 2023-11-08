@@ -1,22 +1,22 @@
-<script>
-    const start = performance.now();
-    const year = document.getElementById('year');
-    const elapsedTime = document.getElementById('elapsedTime');
+---
+import { Icon } from "astro-icon";
+---
 
-    year.innerText = new Date().getFullYear();
-    window.addEventListener('load', () => {
-        const end = performance.now();
-        elapsedTime.innerText = `Page loaded in ${Math.round(end - start)}ms`;
-    });
+<script>
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById('year');
+    yearElement.innerText = currentYear;
 </script>
 
-<footer class="flex items-center text-zinc-400 mt-7 justify-center h-16 w-full flex-col">
-    <div class="text-sm text-center mb-2 cursor-default">
+<footer class="flex items-center text-zinc-400 mt-7 justify-center h-16 w-full flex-col gap-2">
+    <div class="text-sm text-center cursor-default">
         2021 - <span id="year"></span>
         &copy;&nbsp;<a href="https://github.com/cojocaru-david" class="text-zinc-200 hover:text-zinc-500">David Cojocaru</a>
     </div>
-    <p class="text-sm text-center flex flex-col items-center">
+    <p class="text-sm text-center flex flex-col items-center justify-center mt-1 gap-1">
+        <a href="mailto:contact@cojocarudavid.me" class="text-zinc-200 hover:text-zinc-500" title="Email" rel="noopener noreferrer">
+            <Icon name="mdi:email" class="w-4 h-4" />
+        </a>
         All rights reserved.
-        <span id="elapsedTime" class="text-zinc-400"></span>
     </p>
 </footer>

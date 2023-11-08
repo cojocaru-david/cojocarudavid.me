@@ -9,10 +9,11 @@ export const defaultMeta = {
     "technologies", "projects", "david", "cojocaru", "davidcojocaru", "developer", "romania",
     "web", "development", "cybersecurity", "cyber", "security", "coding", "coding enthusiast",
     "software", "nginx", "nodejs", "javascript", "typescript", "react", "nextjs", "tailwindcss",
-    "css", "html", "blog", "portfolio", "website", "personal", "personal website", "personal blog"
+    "css", "html", "blog", "portfolio", "website", "personal", "personal website", "personal blog",
+    "personal portfolio", "personal website", "personal blog", "personal portfolio", "personal website"
   ],
   ogImage: {
-    src: "/static/banner.png",
+    src: "/logo.png",
     alt: "David Cojocaru - Home",
   },
 };
