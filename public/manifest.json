@@ -42,6 +42,13 @@
       "type": "image\/png",
       "density": "4.0",
       "purpose": "any maskable"
+     },
+     {
+        "src": "\/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image\/png",
+        "density": "1.0",
+        "purpose": "any maskable"
      }
     ],
     "theme_color": "#60A5FA",
