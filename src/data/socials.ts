@@ -13,7 +13,7 @@ export const defaultMeta = {
     "personal portfolio", "personal website", "personal blog", "personal portfolio", "personal website"
   ],
   ogImage: {
-    src: "/logo.png",
+    src: "/banner.png",
     alt: "David Cojocaru - Home",
   },
 };
