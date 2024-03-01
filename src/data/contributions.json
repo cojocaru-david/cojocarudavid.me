@@ -1,7 +1,7 @@
 [
   {
     "name": "cojocaru-david",
-    "stars": 3,
+    "stars": 26,
     "url": "https://github.com/cojocaru-david/cojocarudavid.me",
     "description": "My personal website built with AstroJS and TailwindCSS",
     "languages": [
@@ -14,7 +14,7 @@
   },
   {
     "name": "david-dark-code",
-    "stars": 1,
+    "stars": 11,
     "url": "https://github.com/cojocaru-david/david-dark-code",
     "website": "https://marketplace.visualstudio.com/items?itemName=cojocaru-david.david-dark-code",
     "description": "David Dark is a dark theme for VS Code. It is based on the github theme and the default dark theme. It is designed to be easy on the eyes and to be used for long periods of time.",
