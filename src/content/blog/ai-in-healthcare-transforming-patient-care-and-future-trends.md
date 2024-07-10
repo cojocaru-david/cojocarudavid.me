@@ -1,3 +1,13 @@
+---
+title: AI in Healthcare: Transforming Patient Care and Future Trends
+description: Explore the transformative impact of AI in healthcare. Learn about current applications, benefits, challenges, and future trends shaping the future of patient care and medical innovation.
+pubDate: 2024-07-10
+updatedDate: 2024-07-10
+hero: "~/assets/heros/ai-in-healthcare-transforming-patient-care-and-future-trends.png"
+heroAlt: "Care and Future Trends"
+tags: ["AI in healthcare", "healthcare technology", "medical AI", "digital health", "AI diagnosis", "clinical decision support", "personalized medicine", "AI drug discovery", "healthcare innovation", "AI medical imaging", "healthcare AI trends", "future of healthcare", "AI patient care", "healthcare automation", "AI healthcare applications"]
+---
+
 # AI in Healthcare: Transforming Patient Care and Future Trends
 
 ## Introduction
