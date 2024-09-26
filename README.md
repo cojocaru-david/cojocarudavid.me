@@ -1,4 +1,4 @@
-# CojocaruDavid.me
+# cojocarudavid.me
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/cojocaru-david/cojocarudavid.me/ci.yml)
 ![License](https://img.shields.io/github/license/cojocaru-david/cojocarudavid.me)
@@ -7,14 +7,33 @@
 
 👋 Hi, I'm David, a 16yo coder from Romania 🚀 Crafting web wonders with JavaScript, PHP, and React. Linux lover automating tasks with Bash.
 
+## 🚀 Project Overview
+
+cojocarudavid.me is a blazing fast personal website built with Astro.js and styled with Tailwind CSS. It showcases my projects, blog posts, and more.
+
+![Website Screenshot](.github/smartmockups_m1jn1m6x.jpg)
+
 ## 🌟 Features
 
-- 🚀 Fast and optimized
-- 🎨 Beautiful and customizable UI
-- 🔒 Secure and reliable
-- 🔄 Continuous integration and deployment
+- 🚀 **Fast and optimized** - Built for speed and performance.
+- 🎨 **Beautiful and customizable UI** - Tailwind CSS for easy customization.
+- 🔒 **Secure and reliable** - Follows best security practices.
+- 🔄 **Continuous integration and deployment** - Automated workflows with GitHub Actions.
+
+## 🛠️ Technologies Used
+
+- **Astro.js** - Static site generator.
+- **Tailwind CSS** - Utility-first CSS framework.
+- **TypeScript** - Typed JavaScript at Any Scale.
+- **JavaScript** - High-level, often just-in-time compiled, and multi-paradigm.
+- **CSS** - Cascading Style Sheets.
 
 ## 📚 Documentation
+
+### Prerequisites
+
+- Node.js and npm installed.
+- Git installed.
 
 ### Setup
 
@@ -71,3 +90,9 @@ Feel free to reach out to me at [contact@cojocarudavid.me](mailto:contact@cojoca
 ## 🌟 Show Your Support
 
 Give a ⭐️ if you like this project!
+
+## 🙏 Acknowledgments
+
+- [Astro.js](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [GitHub Actions](https://github.com/features/actions)
