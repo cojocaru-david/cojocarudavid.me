@@ -35,7 +35,7 @@
     "@astrojs/mdx": "^3.1.8",
     "@astrojs/netlify": "^3.1.1",
     "@astrojs/preact": "^3.0.1",
-    "@octokit/core": "^4.2.4",
+    "@octokit/core": "^6.1.4",
     "astro-compressor": "^0.4.1",
     "tailwindcss": "^3.3.3",
     "typescript-esbuild": "^0.2.22",
