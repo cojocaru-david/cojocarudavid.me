@@ -1,12 +1,12 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-sans: "Montserrat Variable", sans-serif;
+}
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
+body,
+html {
+  font-family: "Montserrat Variable", sans-serif;
 }
 
 body::-webkit-scrollbar {

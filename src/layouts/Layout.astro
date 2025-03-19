@@ -2,7 +2,8 @@
 import Link from "@components/Link.astro";
 import { author, defaultMeta } from "@data/socials";
 import navigation from "@data/navigation.json";
-import "@fontsource-variable/inter";
+import "@fontsource-variable/montserrat";
+
 import Footer from "@components/Footer.astro";
 import "../styles/global.css";
 
@@ -35,7 +36,7 @@ const date = pubDate || lastmod || new Date();
 <!doctype html>
 <html
   lang="en"
-  class="overflow-x-hidden break-words text-neutral-900 dark:text-neutral-100 dark"
+  class="scroll-smooth overflow-x-hidden break-words text-neutral-900 dark:text-neutral-100 dark"
 >
   <head>
     <meta charset="utf-8" />
@@ -60,8 +61,8 @@ const date = pubDate || lastmod || new Date();
     <meta name="twitter:image" content={ogImageURL} />
     <meta name="twitter:image:alt" content={ogImage.alt} />
     <meta name="twitter:domain" content="cojocarudavid.me" />
-    <meta name="theme-color" content="#60A5FA" />
-    <meta name="msapplication-TileColor" content="#60A5FA" />
+    <meta name="theme-color" content="#3B82F6" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
     <meta name="color-scheme" content="light dark" />
     <meta name="apple-mobile-web-app-title" content={title} />
     <meta name="application-name" content={title} />
@@ -118,45 +119,195 @@ const date = pubDate || lastmod || new Date();
     <meta name="keywords" content={tags.join(", ")} />
   </head>
   <body
-    class="bg-neutral-100 flex items-center flex-wrap justify-center gap-5 dark:bg-neutral-900 antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-white text-base lg:text-lg"
+    class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-white text-base lg:text-lg"
   >
+    <!-- Gradient accent -->
     <div
       class="fixed inset-0 pointer-events-none -z-10"
       style={{
         background:
-          "linear-gradient(45deg, rgba(96, 122, 250, 0) 20.79%, rgba(96, 122, 250, 0.09) 40.92%, rgba(255,255,255, 0) 70.35%)",
+          "linear-gradient(135deg, rgba(59, 130, 246, 0) 20%, rgba(59, 130, 246, 0.12) 40%, rgba(255,255,255, 0) 70%)",
       }}
     >
     </div>
 
-    <nav
-      class="sticky top-0 z-10 w-full backdrop-blur-lg bg-neutral-900/90 lg:bg-neutral-900/50 py-4"
-    >
-      <div class="container mx-auto px-4 lg:px-6">
+    <!-- Navigation -->
+    <header>
+      <nav
+        class="sticky top-0 z-10 w-full backdrop-blur-lg py-1 flex items-center justify-center"
+      >
         <ul class="flex justify-center items-center gap-6 text-sm">
           {
             navigation.map((item) => (
               <li>
                 <Link
                   {...item}
-                  addClass="font-medium hover:text-blue-400 transition-colors"
+                  addClass="font-bold hover:text-blue-400 transition-colors"
                 />
               </li>
             ))
           }
-        </ul>
-      </div>
-    </nav>
 
-    {/* Main content */}
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
+            aria-label="Toggle theme"
+          >
+            <svg
+              id="sun-icon"
+              class="hidden w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              ></path>
+            </svg>
+            <svg
+              id="moon-icon"
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
+            </svg>
+          </button>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Skip to content link for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded"
+    >
+      Skip to content
+    </a>
+
+    <!-- Main content -->
     <main
-      class="container mx-auto px-4 lg:px-6 max-w-3xl flex flex-col grow min-h-[calc(100vh-4rem)] py-8"
+      class="w-full mx-auto px-4 lg:px-8 max-w-4xl flex flex-col flex-grow py-8 md:py-12 font-sans"
       id="main-content"
     >
       <slot />
-      <Footer />
     </main>
 
+    <Footer />
+
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 z-40 p-2 rounded-full bg-blue-600 text-white shadow-lg opacity-0 translate-y-8 transition-all duration-300"
+      aria-label="Back to top"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
+
+    <script is:inline>
+      // Theme toggle functionality
+      const themeToggles = [document.getElementById("theme-toggle")];
+
+      const updateTheme = (isDark) => {
+        document.documentElement.classList.toggle("dark", isDark);
+
+        // Update all theme toggle buttons
+        const sunIcons = [
+          document.getElementById("sun-icon"),
+          document.getElementById("mobile-sun-icon"),
+        ];
+        const moonIcons = [
+          document.getElementById("moon-icon"),
+          document.getElementById("mobile-moon-icon"),
+        ];
+
+        sunIcons.forEach((icon) => icon?.classList.toggle("hidden", !isDark));
+        moonIcons.forEach((icon) => icon?.classList.toggle("hidden", isDark));
+
+        const themeLabel = document.getElementById("theme-label");
+        if (themeLabel)
+          themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      };
+
+      // Initialize theme
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+
+      updateTheme(isDark);
+
+      // Add event listeners to theme toggles
+      themeToggles.forEach((toggle) => {
+        toggle?.addEventListener("click", () => {
+          const isDark = document.documentElement.classList.contains("dark");
+          updateTheme(!isDark);
+        });
+      });
+
+      // Progress bar for articles
+      const progressBar = document.getElementById("progress-bar");
+      if (progressBar) {
+        window.addEventListener("scroll", () => {
+          const scrollTop =
+            document.documentElement.scrollTop || document.body.scrollTop;
+          const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+          const scrolled = (scrollTop / scrollHeight) * 100;
+          progressBar.style.width = scrolled + "%";
+        });
+      }
+
+      // Back to top button
+      const backToTopButton = document.getElementById("back-to-top");
+      if (backToTopButton) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopButton.classList.replace("opacity-0", "opacity-100");
+            backToTopButton.classList.replace("translate-y-8", "translate-y-0");
+          } else {
+            backToTopButton.classList.replace("opacity-100", "opacity-0");
+            backToTopButton.classList.replace("translate-y-0", "translate-y-8");
+          }
+        });
+
+        backToTopButton.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+    </script>
+
+    <!-- Analytics script -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVK59XQK72"
     ></script>
     <script is:inline>
