@@ -6,6 +6,7 @@ updatedDate: 2023-10-16
 hero: "@assets/heros/astro_dark.png"
 heroAlt: "Astro logo with a dark background"
 tags: ["astro", "tailwind", "dark-mode", "preact", "css", "framework"]
+slug: dark-mode-in-astro
 ---
 
 Enhancing website accessibility is easy with the addition of a dark mode. In this comprehensive guide, we'll demonstrate how to seamlessly integrate a perfect dark mode into your Astro project using Tailwind CSS. While you can use your preferred framework, we'll leverage Preact for the UI development.

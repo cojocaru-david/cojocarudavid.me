@@ -3,7 +3,9 @@ import Link from "@components/Link.astro";
 import { author, defaultMeta } from "@data/socials";
 import navigation from "@data/navigation.json";
 import "@fontsource-variable/montserrat";
-
+import PostHog from "../components/posthog.astro";
+import { ClientRouter } from "astro:transitions";
+import { Icon } from "astro-icon/components";
 import Footer from "@components/Footer.astro";
 import "../styles/global.css";
 
@@ -117,9 +119,11 @@ const date = pubDate || lastmod || new Date();
     />
     <meta name="date" content={date.toISOString()} />
     <meta name="keywords" content={tags.join(", ")} />
+    <PostHog />
+    <ClientRouter />
   </head>
   <body
-    class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-white text-base lg:text-lg"
+    class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-neutral-100 text-base lg:text-lg"
   >
     <!-- Gradient accent -->
     <div
@@ -150,7 +154,7 @@ const date = pubDate || lastmod || new Date();
 
           <button
             id="theme-toggle"
-            class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
+            class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/50 transition-colors"
             aria-label="Toggle theme"
           >
             <svg
@@ -191,7 +195,7 @@ const date = pubDate || lastmod || new Date();
     <!-- Skip to content link for accessibility -->
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-neutral-100 focus:rounded"
     >
       Skip to content
     </a>
@@ -209,7 +213,7 @@ const date = pubDate || lastmod || new Date();
     <!-- Back to top button -->
     <button
       id="back-to-top"
-      class="fixed bottom-6 right-6 z-40 p-2 rounded-full bg-blue-600 text-white shadow-lg opacity-0 translate-y-8 transition-all duration-300"
+      class="fixed bottom-6 right-6 z-40 p-2 rounded-full bg-blue-600 text-neutral-100 shadow-lg opacity-0 translate-y-8 transition-all duration-300"
       aria-label="Back to top"
     >
       <svg
@@ -228,9 +232,6 @@ const date = pubDate || lastmod || new Date();
     </button>
 
     <script is:inline>
-      // Theme toggle functionality
-      const themeToggles = [document.getElementById("theme-toggle")];
-
       const updateTheme = (isDark) => {
         document.documentElement.classList.toggle("dark", isDark);
 
@@ -259,16 +260,22 @@ const date = pubDate || lastmod || new Date();
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
-      const isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+      var isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+
+      function setupEvent() {
+        document
+          .getElementById("theme-toggle")
+          .addEventListener("click", () => {
+            const isDark = document.documentElement.classList.contains("dark");
+            updateTheme(!isDark);
+          });
+      }
 
       updateTheme(isDark);
-
-      // Add event listeners to theme toggles
-      themeToggles.forEach((toggle) => {
-        toggle?.addEventListener("click", () => {
-          const isDark = document.documentElement.classList.contains("dark");
-          updateTheme(!isDark);
-        });
+      document.addEventListener("astro:after-swap", () => {
+        isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+        updateTheme(isDark);
+        setupEvent();
       });
 
       // Progress bar for articles
@@ -305,6 +312,8 @@ const date = pubDate || lastmod || new Date();
           });
         });
       }
+
+      setupEvent();
     </script>
 
     <!-- Analytics script -->

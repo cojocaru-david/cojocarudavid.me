@@ -28,12 +28,6 @@ const ogImage = {
 const fullPubDate = pubDate.toLocaleDateString("en", {
   dateStyle: "full",
 });
-
-const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
 ---
 
 <AppLayout
@@ -59,7 +53,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
         {fullPubDate}
       </time>
       <div class="flex items-center gap-4">
-        <div class="aspect-square rounded-full overflow-hidden">
+        <div class="aspect-square rounded-sm overflow-hidden">
           <Image
             src={authorImage}
             alt="Image of the author"
@@ -90,6 +84,18 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
       height={630}
     />
   </header>
+
+  <div
+    id="progress-container"
+    class="fixed top-0 left-0 w-full h-1 z-50 bg-transparent"
+  >
+    <div
+      id="progress-bar"
+      class="h-full bg-blue-600 w-0 transition-all duration-200"
+    >
+    </div>
+  </div>
+
   <article
     class="prose dark:prose-invert lg:prose-lg dark:prose-code:text-neutral-300 dark:prose-a:text-blue-400 prose-a:text-blue-600 max-w-none hover:prose-a:underline focus:prose-a:underline prose-a:no-underline dark:prose-headings:text-teal-500 prose-img:rounded-lg"
   >

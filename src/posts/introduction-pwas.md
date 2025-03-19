@@ -16,6 +16,7 @@ tags:
     "manifest",
     "web app",
   ]
+slug: introduction-pwas
 ---
 
 Progressive Web Apps (PWAs) are a type of application software delivered through the web, built using common web technologies including HTML, CSS, and JavaScript. They are intended to work on any platform that uses a standards-compliant browser, including both desktop and mobile devices.

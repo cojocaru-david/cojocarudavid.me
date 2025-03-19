@@ -5,53 +5,137 @@ interface Props {
   pubDate: Date;
   url: string;
   tags: string[];
+  content: string | null;
 }
 
-const { title, description, pubDate, url, tags } = Astro.props;
+const { title, description, pubDate, url, tags, content } = Astro.props;
 
 const fullDate = pubDate.toLocaleDateString("en", {
   year: "numeric",
   month: "long",
   day: "numeric",
 });
+
+const getReadingTime = (text: string) => {
+  const wordsPerMinute = 200;
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return minutes < 1 ? "< 1 min read" : `${minutes} min read`;
+};
+
+var readingTime;
+if (content) {
+  readingTime = getReadingTime(content);
+} else {
+  readingTime = "1 min read";
+}
 ---
 
 <li
-  class="dark:text-neutral-400 text-neutral-500 gap-1 p-6 border dark:border-neutral-700/60 rounded-lg flex flex-col bg-neutral-50/40 dark:bg-neutral-800/40"
+  class="blog-card group relative overflow-hidden dark:text-neutral-400 text-neutral-500 gap-1 p-6 border dark:border-neutral-700/60 border-neutral-200/80 rounded-xl flex flex-col bg-white/30 dark:bg-neutral-800/30 shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm"
 >
-  <a class="flex flex-col gap-2" href={url}>
-    <div class="flex justify-between">
-      <div class="flex flex-col sm:flex-row sm:items-baseline gap-2">
-        <h1
-          class="text-lg font-medium dark:text-white text-neutral-700 [word-break:break-word]"
+  <div class="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
+
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-transparent via-neutral-200/20 to-transparent dark:from-transparent dark:via-neutral-600/10 dark:to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+  >
+  </div>
+
+  <a class="flex flex-col gap-2 z-10" href={url}>
+    <div
+      class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2"
+    >
+      <h1
+        class="text-lg font-medium dark:text-white text-neutral-800 [word-break:break-word] group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300"
+      >
+        {title}
+      </h1>
+      <div class="flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 text-neutral-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          {title}
-        </h1>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          ></path>
+        </svg>
+        <time
+          datetime={pubDate.toISOString()}
+          class="block text-sm tracking-wide dark:text-neutral-400 text-neutral-600 whitespace-nowrap"
+        >
+          {fullDate}
+        </time>
       </div>
-      <time
-        datetime={pubDate.toISOString()}
-        class="block text-sm tracking-wide dark:text-neutral-400 text-neutral-600"
-        >{fullDate}
-      </time>
     </div>
-    <p class="text-sm dark:text-neutral-400 text-neutral-600 mt-2">
+
+    <div
+      class="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 mt-1"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span>{readingTime}</span>
+    </div>
+
+    <p
+      class="leading-relaxed text-neutral-600 dark:text-neutral-300 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300"
+    >
       {description}
     </p>
-    <div class="flex flex-wrap gap-2 mt-2 text-neutral-600 text-center">
-      <p
-        class="text-sm dark:text-neutral-400 text-neutral-600 text-center mt-1"
-      >
-        Tags:
-      </p>
-      <ul class="flex flex-wrap gap-2">
-        {
-          tags.map((tag) => (
-            <li class="dark:bg-neutral-700 bg-neutral-100 text-neutral-600 dark:text-neutral-300 rounded-md px-2 py-1 text-sm">
-              {tag}
-            </li>
-          ))
-        }
-      </ul>
+
+    <div class="flex flex-wrap gap-2 mt-3">
+      {
+        tags.map((tag) => (
+          <span class="text-xs font-medium dark:bg-neutral-700/80 bg-neutral-100 text-neutral-600 dark:text-neutral-200 rounded-full px-3 py-1 transition-all duration-300 hover:bg-neutral-200 dark:hover:bg-neutral-600 cursor-default">
+            {tag}
+          </span>
+        ))
+      }
     </div>
   </a>
 </li>
+
+<style>
+  .blog-card {
+    will-change: transform, box-shadow;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-card,
+    .blog-card * {
+      transition-duration: 0.1s !important;
+      animation-duration: 0.1s !important;
+    }
+  }
+</style>

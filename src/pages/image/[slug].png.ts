@@ -7,10 +7,10 @@ import fs from "fs";
 import path from "path";
 
 const MontserratRegular = fs.readFileSync(
-  path.resolve("./src/pages/image/Montserrat_Regular.ttf")
+  path.resolve("./src/assets/_montserrat_regular.ttf")
 );
 const MontserratBold = fs.readFileSync(
-  path.resolve("./src/pages/image/Montserrat_Bold.ttf")
+  path.resolve("./src/assets/_montserrat_bold.ttf")
 );
 
 const dimensions = {
@@ -104,7 +104,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog");
   const paths = posts.map((post) => ({
     params: {
-      slug: post.slug,
+      slug: post.id,
     },
     props: {
       title: post.data.title,

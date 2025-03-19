@@ -7,6 +7,7 @@ hero: "@assets/heros/mobile_website_optimization_best_practices.png"
 heroAlt: "Illustration of mobile website optimization best practices"
 tags:
   ["web", "mobile", "optimization", "best practices", "website", "development"]
+slug: mobile-website-optimization-best-practices
 ---
 
 In the digital era, mobile devices have become an integral part of our online experiences. From browsing the web to online shopping, mobile devices are embedded in our daily routines. As a website owner or developer, it's imperative to optimize your website for mobile devices. Here are some best practices to ensure your website delivers an optimal experience on mobile devices.

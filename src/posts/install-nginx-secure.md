@@ -17,6 +17,7 @@ tags:
     "letsencrypt",
     "certbot",
   ]
+slug: install-nginx-secure
 ---
 
 In this tutorial, we will show you how to install and secure Nginx on an Ubuntu 22.04, 20.04, 18.04 server using Let's Encrypt and iptables.
