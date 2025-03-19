@@ -1,48 +1,98 @@
-# Astro Starter Kit: Basics
+# cojocarudavid.me
 
-```sh
-npm create astro@latest -- --template basics
-```
+![Build Status](https://img.shields.io/github/actions/workflow/status/cojocaru-david/cojocarudavid.me/ci.yml)
+![License](https://img.shields.io/github/license/cojocaru-david/cojocarudavid.me)
+![Version](https://img.shields.io/github/package-json/v/cojocaru-david/cojocarudavid.me)
+![Stars](https://img.shields.io/github/stars/cojocaru-david/cojocarudavid.me?style=social)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+👋 Hi, I'm David, a 16yo coder from Romania 🚀 Crafting web wonders with JavaScript, PHP, and React. Linux lover automating tasks with Bash.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Project Overview
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+cojocarudavid.me is a blazing fast personal website built with Astro.js and styled with Tailwind CSS. It showcases my projects, blog posts, and more.
 
-## 🚀 Project Structure
+![Website Screenshot](.github/smartmockups_m1jn1m6x.jpg)
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🌟 Features
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- 🚀 **Fast and optimized** - Built for speed and performance.
+- 🎨 **Beautiful and customizable UI** - Tailwind CSS for easy customization.
+- 🔒 **Secure and reliable** - Follows best security practices.
+- 🔄 **Continuous integration and deployment** - Automated workflows with GitHub Actions.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Technologies Used
 
-## 🧞 Commands
+- **Astro.js** - Static site generator.
+- **Tailwind CSS** - Utility-first CSS framework.
+- **TypeScript** - Typed JavaScript at Any Scale.
+- **JavaScript** - High-level, often just-in-time compiled, and multi-paradigm.
+- **CSS** - Cascading Style Sheets.
 
-All commands are run from the root of the project, from a terminal:
+## 📚 Documentation
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Prerequisites
 
-## 👀 Want to learn more?
+- Node.js and npm installed.
+- Git installed.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Setup
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/cojocaru-david/cojocarudavid.me.git
+   ```
+
+2. **Install dependencies:**
+
+   ```sh
+   cd cojocarudavid.me
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   ```sh
+   npm run dev
+   ```
+
+### Usage
+
+- **Build for production:**
+
+  ```sh
+  npm run build
+  ```
+
+- **Deploy:**
+
+  ```sh
+  npm run deploy
+  ```
+
+### Contributing
+
+Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) first.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 💬 Contact
+
+Feel free to reach out to me at [contact@cojocarudavid.me](mailto:contact@cojocarudavid.me).
+
+## 🚀 Connect with Me
+
+- [LinkedIn](https://www.linkedin.com/in/cojocaru-david)
+- [Blog](https://cojocarudavid.me/blog)
+
+## 🌟 Show Your Support
+
+Give a ⭐️ if you like this project!
+
+## 🙏 Acknowledgments
+
+- [Astro.js](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [GitHub Actions](https://github.com/features/actions)
