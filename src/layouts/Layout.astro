@@ -35,7 +35,7 @@ const date = pubDate || lastmod || new Date();
 <!doctype html>
 <html
   lang="en"
-  class="overflow-x-hidden break-words text-zinc-900 dark:text-zinc-100 dark"
+  class="overflow-x-hidden break-words text-neutral-900 dark:text-neutral-100 dark"
 >
   <head>
     <meta charset="utf-8" />
@@ -118,9 +118,8 @@ const date = pubDate || lastmod || new Date();
     <meta name="keywords" content={tags.join(", ")} />
   </head>
   <body
-    class="bg-zinc-100 dark:bg-zinc-900 antialiased selection:bg-blue-300 selection:text-zinc-900 dark:selection:bg-blue-600 dark:selection:text-white text-base lg:text-lg"
+    class="bg-neutral-100 flex items-center flex-wrap justify-center gap-5 dark:bg-neutral-900 antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-white text-base lg:text-lg"
   >
-    {/* Background gradient */}
     <div
       class="fixed inset-0 pointer-events-none -z-10"
       style={{
@@ -130,9 +129,8 @@ const date = pubDate || lastmod || new Date();
     >
     </div>
 
-    {/* Navigation */}
     <nav
-      class="sticky top-0 z-10 w-full backdrop-blur-lg bg-zinc-900/90 lg:bg-zinc-900/50 py-4"
+      class="sticky top-0 z-10 w-full backdrop-blur-lg bg-neutral-900/90 lg:bg-neutral-900/50 py-4"
     >
       <div class="container mx-auto px-4 lg:px-6">
         <ul class="flex justify-center items-center gap-6 text-sm">
@@ -152,7 +150,7 @@ const date = pubDate || lastmod || new Date();
 
     {/* Main content */}
     <main
-      class="container mx-auto px-4 lg:px-6 max-w-3xl flex flex-col flex-grow min-h-[calc(100vh-4rem)] py-8"
+      class="container mx-auto px-4 lg:px-6 max-w-3xl flex flex-col grow min-h-[calc(100vh-4rem)] py-8"
       id="main-content"
     >
       <slot />

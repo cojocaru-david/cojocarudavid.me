@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
 const index = posts.findIndex((post) => {
@@ -18,12 +18,12 @@ const prevPost = posts[index - 1];
     prevPost && (
       <a
         href={`/blog/${prevPost.slug}/`}
-        class="group flex-1 flex flex-col grow text-sm p-4 rounded-lg border border-zinc-300 dark:border-zinc-700 dark:hover:border-blue-400 hover:border-blue-300 transition-all dark:hover:bg-blue-600/20 hover:bg-blue-100"
+        class="group flex-1 flex flex-col grow text-sm p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 dark:hover:border-blue-400 hover:border-blue-300 transition-all dark:hover:bg-blue-600/20 hover:bg-blue-100"
       >
-        <p class="dark:text-zinc-400 text-zinc-600 mb-1 group-hover:dark:text-zinc-300 group-hover:text-zinc-700">
+        <p class="dark:text-neutral-400 text-neutral-600 mb-1 group-hover:dark:text-neutral-300 group-hover:text-neutral-700">
           &larr; Previous post
         </p>
-        <p class="font-semibold dark:text-zinc-300 text-zinc-700 group-hover:dark:text-blue-400 group-hover:text-blue-800">
+        <p class="font-semibold dark:text-neutral-300 text-neutral-700 group-hover:dark:text-blue-400 group-hover:text-blue-800">
           {prevPost.data.title}
         </p>
       </a>
@@ -33,12 +33,12 @@ const prevPost = posts[index - 1];
     nextPost && (
       <a
         href={`/blog/${nextPost.slug}/`}
-        class="group flex-1 flex flex-col text-right grow text-sm p-4 rounded-lg border border-zinc-300 dark:border-zinc-700 dark:hover:border-blue-400 hover:border-blue-300 transition-all dark:hover:bg-blue-600/20 hover:bg-blue-100"
+        class="group flex-1 flex flex-col text-right grow text-sm p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 dark:hover:border-blue-400 hover:border-blue-300 transition-all dark:hover:bg-blue-600/20 hover:bg-blue-100"
       >
-        <p class="dark:text-zinc-400 text-zinc-600 mb-1 group-hover:dark:text-zinc-300 group-hover:text-zinc-700">
+        <p class="dark:text-neutral-400 text-neutral-600 mb-1 group-hover:dark:text-neutral-300 group-hover:text-neutral-700">
           Next post &rarr;
         </p>
-        <p class="font-semibold dark:text-zinc-300 text-zinc-700 group-hover:dark:text-blue-400 group-hover:text-blue-800">
+        <p class="font-semibold dark:text-neutral-300 text-neutral-700 group-hover:dark:text-blue-400 group-hover:text-blue-800">
           {nextPost.data.title}
         </p>
       </a>

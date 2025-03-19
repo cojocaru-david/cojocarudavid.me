@@ -54,7 +54,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
     >
       <time
         datetime={pubDate.toISOString()}
-        class="block text-center dark:text-zinc-400 text-zinc-600 mb-4 text-sm sm:text-base"
+        class="block text-center dark:text-neutral-400 text-neutral-600 mb-4 text-sm sm:text-base"
       >
         {fullPubDate}
       </time>
@@ -69,7 +69,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
             height={80}
           />
         </div>
-        <p class="dark:text-zinc-400 text-zinc-700 text-sm">
+        <p class="dark:text-neutral-400 text-neutral-700 text-sm">
           <span class="block font-semibold">{author}</span>
           <a
             class="dark:text-blue-400 text-blue-600 hover:underline block"
@@ -91,7 +91,7 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
     />
   </header>
   <article
-    class="prose dark:prose-invert lg:prose-lg dark:prose-code:text-zinc-300 dark:prose-a:text-blue-400 prose-a:text-blue-600 max-w-none hover:prose-a:underline focus:prose-a:underline prose-a:no-underline dark:prose-headings:text-teal-500 prose-img:rounded-lg"
+    class="prose dark:prose-invert lg:prose-lg dark:prose-code:text-neutral-300 dark:prose-a:text-blue-400 prose-a:text-blue-600 max-w-none hover:prose-a:underline focus:prose-a:underline prose-a:no-underline dark:prose-headings:text-teal-500 prose-img:rounded-lg"
   >
     <slot />
   </article>

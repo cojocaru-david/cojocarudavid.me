@@ -22,12 +22,12 @@ const { name, role, url, description, stars, languages, website } = Astro.props;
 ---
 
 <li
-  class="dark:text-zinc-400 text-zinc-500 gap-1 p-6 border dark:border-zinc-700/60 rounded-lg flex flex-col bg-opacity-40 dark:bg-opacity-40 bg-zinc-50 dark:bg-zinc-800"
+  class="dark:text-neutral-400 text-neutral-500 gap-1 p-6 border dark:border-neutral-700/60 rounded-lg flex flex-col bg-neutral-50/40 dark:bg-neutral-800/40"
 >
   <div class="flex justify-between">
     <div class="flex flex-col sm:flex-row sm:items-baseline gap-2">
       <h2
-        class="text-lg font-medium dark:text-white text-zinc-700 [word-break:break-word]"
+        class="text-lg font-medium dark:text-white text-neutral-700 [word-break:break-word]"
       >
         {name}
       </h2>
@@ -42,7 +42,7 @@ const { name, role, url, description, stars, languages, website } = Astro.props;
       >
         <Icon
           name="mdi:github"
-          class="w-6 fill-current dark:hover:text-zinc-300 hover:text-zinc-600 hover:scale-110 transition-all"
+          class="w-6 fill-current dark:hover:text-neutral-300 hover:text-neutral-600 hover:scale-110 transition-all"
         />
       </a>
       {
@@ -55,7 +55,7 @@ const { name, role, url, description, stars, languages, website } = Astro.props;
           >
             <Icon
               name="mdi:web"
-              class="w-6 fill-current dark:hover:text-zinc-300 hover:text-zinc-600 hover:scale-110 transition-all"
+              class="w-6 fill-current dark:hover:text-neutral-300 hover:text-neutral-600 hover:scale-110 transition-all"
             />
           </a>
         )
@@ -67,7 +67,7 @@ const { name, role, url, description, stars, languages, website } = Astro.props;
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      class="w-5 text-zinc-400"
+      class="w-5 text-neutral-400"
     >
       <path
         fill-rule="evenodd"
@@ -81,7 +81,7 @@ const { name, role, url, description, stars, languages, website } = Astro.props;
   <ul class="flex flex-wrap gap-2 mt-2">
     {
       languages.map((item) => (
-        <li class="dark:bg-zinc-700 bg-zinc-100 text-zinc-600 dark:text-zinc-300 rounded-md px-2 py-1 text-sm">
+        <li class="dark:bg-neutral-700 bg-neutral-100 text-neutral-600 dark:text-neutral-300 rounded-md px-2 py-1 text-sm">
           {item}
         </li>
       ))

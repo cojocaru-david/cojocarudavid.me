@@ -3,7 +3,7 @@ title: Implement dark mode in your Astro project with Tailwind CSS
 description: This guide will walk you through adding a seamless dark mode to your Astro project using Tailwind CSS and the prefers-color-scheme media query.
 pubDate: 2023-08-16
 updatedDate: 2023-10-16
-hero: "~/assets/heros/astro_dark.png"
+hero: "@assets/heros/astro_dark.png"
 heroAlt: "Astro logo with a dark background"
 tags: ["astro", "tailwind", "dark-mode", "preact", "css", "framework"]
 ---
@@ -54,7 +54,6 @@ Astro offers the capability to add inline scripts directly to your Astro files, 
 
 The following code extracts the user's preferred theme and applies it to the HTML element. You can copy, paste, or customize this code snippet in your Astro project. We'll explain each line in the next section.
 
-
 ```astro title="Layout.astro"
 <script is:inline>
   const theme = (() => {
@@ -83,9 +82,7 @@ The `theme` variable is an immediately invoked function expression (IIFE) that r
 In Astro, you can use any UI framework of your choice. For this example, we will use **Preact** due to its small size and performance. The following code snippet renders a button that toggles between dark and light mode:
 
 ```tsx title="ThemeToggle.tsx"
-import { useEffect, useState
-
- } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import type { FunctionalComponent } from "preact";
 
 export default function ThemeToggle(): FunctionalComponent {
