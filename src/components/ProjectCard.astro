@@ -1,6 +1,6 @@
 ---
 import Badge from "@components/Badge.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   name: string;
@@ -35,31 +35,32 @@ const { name, role, url, description, stars, languages, website } = Astro.props;
     </div>
     <div class="flex gap-2">
       <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Open ${name} repository in a new tab`}
-    >
-      <Icon
-        name="mdi:github"
-        class="w-6 fill-current dark:hover:text-zinc-300 hover:text-zinc-600 hover:scale-110 transition-all"
-      />
-    </a>
-    {website && (
-      <a
-        href={website}
+        href={url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Open ${name} website in a new tab`}
+        aria-label={`Open ${name} repository in a new tab`}
       >
         <Icon
-          name="mdi:web"
+          name="mdi:github"
           class="w-6 fill-current dark:hover:text-zinc-300 hover:text-zinc-600 hover:scale-110 transition-all"
         />
       </a>
-    )}
+      {
+        website && (
+          <a
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${name} website in a new tab`}
+          >
+            <Icon
+              name="mdi:web"
+              class="w-6 fill-current dark:hover:text-zinc-300 hover:text-zinc-600 hover:scale-110 transition-all"
+            />
+          </a>
+        )
+      }
     </div>
-    
   </div>
   <div class="flex gap-2">
     <svg

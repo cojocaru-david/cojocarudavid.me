@@ -1,5 +1,5 @@
 ---
-import AppLayout from "@layouts/AppLayout.astro";
+import AppLayout from "@layouts/Layout.astro";
 import Pagination from "@components/Pagination.astro";
 import { Image } from "astro:assets";
 import authorImage from "../assets/me.png";
@@ -49,35 +49,37 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
     >
       {title}
     </h1>
-    <div class="inline-flex items-center mb-8 justify-between align-middle flex-wrap gap-2">
-      <time
-      datetime={pubDate.toISOString()}
-      class="block text-center dark:text-zinc-400 text-zinc-600 mb-4 text-sm sm:text-base"
+    <div
+      class="inline-flex items-center mb-8 justify-between align-middle flex-wrap gap-2"
     >
-      {fullPubDate}
-    </time>
-    <div class="flex items-center gap-4">
-      <div class="aspect-square rounded-full overflow-hidden">
-        <Image
-          src={authorImage}
-          alt="Image of the author"
-          loading="eager"
-          class="aspect-square w-10"
-          width={80}
-          height={80}
-        />
+      <time
+        datetime={pubDate.toISOString()}
+        class="block text-center dark:text-zinc-400 text-zinc-600 mb-4 text-sm sm:text-base"
+      >
+        {fullPubDate}
+      </time>
+      <div class="flex items-center gap-4">
+        <div class="aspect-square rounded-full overflow-hidden">
+          <Image
+            src={authorImage}
+            alt="Image of the author"
+            loading="eager"
+            class="aspect-square w-10"
+            width={80}
+            height={80}
+          />
+        </div>
+        <p class="dark:text-zinc-400 text-zinc-700 text-sm">
+          <span class="block font-semibold">{author}</span>
+          <a
+            class="dark:text-blue-400 text-blue-600 hover:underline block"
+            href="https://github.com/cojocaru-david/cojocarudavid.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{tag}
+          </a>
+        </p>
       </div>
-      <p class="dark:text-zinc-400 text-zinc-700 text-sm">
-        <span class="block font-semibold">{author}</span>
-        <a
-          class="dark:text-blue-400 text-blue-600 hover:underline block"
-          href="https://github.com/cojocaru-david/cojocarudavid.me"
-          target="_blank"
-          rel="noopener noreferrer"
-          >{tag}
-        </a>
-      </p>
-    </div>
     </div>
     <Image
       src={image}

@@ -1,22 +1,36 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <script>
-    const currentYear = new Date().getFullYear();
-    const yearElement = document.getElementById('year');
-    yearElement.innerText = currentYear;
+  const currentYear = new Date().getFullYear();
+  const yearElement = document.getElementById("year");
+  if (yearElement) {
+    yearElement.innerText = currentYear.toString();
+  }
 </script>
 
-<footer class="flex items-center text-zinc-400 mt-7 justify-center h-16 w-full flex-col gap-2">
-    <div class="text-sm text-center cursor-default">
-        2021 - <span id="year"></span>
-        &copy;&nbsp;<a href="https://github.com/cojocaru-david" class="text-zinc-200 hover:text-zinc-500">David Cojocaru</a>
-    </div>
-    <p class="text-sm text-center flex flex-col items-center justify-center mt-1 gap-1">
-        <a href="mailto:contact@cojocarudavid.me" class="text-zinc-200 hover:text-zinc-500" title="Email" rel="noopener noreferrer">
-            <Icon name="mdi:email" class="w-4 h-4" />
-        </a>
-        All rights reserved.
-    </p>
+<footer
+  class="flex items-center text-zinc-400 mt-7 justify-center h-16 w-full flex-col gap-2"
+>
+  <div class="text-sm text-center cursor-default">
+    2021 - <span id="year"></span>
+    &copy;&nbsp;<a
+      href="https://github.com/cojocaru-david"
+      class="text-zinc-200 hover:text-zinc-500">David Cojocaru</a
+    >
+  </div>
+  <p
+    class="text-sm text-center flex flex-col items-center justify-center mt-1 gap-1"
+  >
+    <a
+      href="mailto:contact@cojocarudavid.me"
+      class="text-zinc-200 hover:text-zinc-500"
+      title="Email"
+      rel="noopener noreferrer"
+    >
+      <Icon name="mdi:email" class="w-4 h-4" />
+    </a>
+    All rights reserved.
+  </p>
 </footer>

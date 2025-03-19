@@ -1,0 +1,173 @@
+---
+import Link from "@components/Link.astro";
+import { author, defaultMeta } from "@data/socials";
+import navigation from "@data/navigation.json";
+import "@fontsource-variable/inter";
+import Footer from "@components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: {
+    src: string;
+    alt: string;
+  };
+  pubDate?: Date;
+  tags?: string[];
+  lastmod?: Date;
+}
+
+const {
+  title,
+  description = defaultMeta.description,
+  ogImage = defaultMeta.ogImage,
+  pubDate,
+  tags = defaultMeta.keywords,
+  lastmod,
+} = Astro.props;
+
+const ogImageURL = new URL(ogImage.src, Astro.site).href;
+const canonicalURL = new URL(Astro.url).href;
+const date = pubDate || lastmod || new Date();
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="overflow-x-hidden break-words text-zinc-900 dark:text-zinc-100 dark"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title || defaultMeta.title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content={author} />
+    <meta property="og:image:alt" content={ogImage.alt} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://cojocarudavid.me" />
+    <meta name="twitter:creator" content={author} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={ogImage.alt} />
+    <meta name="twitter:domain" content="cojocarudavid.me" />
+    <meta name="theme-color" content="#60A5FA" />
+    <meta name="msapplication-TileColor" content="#60A5FA" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-title" content={title} />
+    <meta name="application-name" content={title} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="follow, index" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    {tags && tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    <meta name="author" content={author} />
+    <meta
+      name="pubdate"
+      content={pubDate
+        ? pubDate.toISOString()
+        : "Fri Oct 20 2023 03:00:00 GMT+0300 (Eastern European Summer Time)"}
+    />
+    <meta name="date" content={date.toISOString()} />
+    <meta name="keywords" content={tags.join(", ")} />
+  </head>
+  <body
+    class="bg-zinc-100 dark:bg-zinc-900 antialiased selection:bg-blue-300 selection:text-zinc-900 dark:selection:bg-blue-600 dark:selection:text-white text-base lg:text-lg"
+  >
+    {/* Background gradient */}
+    <div
+      class="fixed inset-0 pointer-events-none -z-10"
+      style={{
+        background:
+          "linear-gradient(45deg, rgba(96, 122, 250, 0) 20.79%, rgba(96, 122, 250, 0.09) 40.92%, rgba(255,255,255, 0) 70.35%)",
+      }}
+    >
+    </div>
+
+    {/* Navigation */}
+    <nav
+      class="sticky top-0 z-10 w-full backdrop-blur-lg bg-zinc-900/90 lg:bg-zinc-900/50 py-4"
+    >
+      <div class="container mx-auto px-4 lg:px-6">
+        <ul class="flex justify-center items-center gap-6 text-sm">
+          {
+            navigation.map((item) => (
+              <li>
+                <Link
+                  {...item}
+                  addClass="font-medium hover:text-blue-400 transition-colors"
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </nav>
+
+    {/* Main content */}
+    <main
+      class="container mx-auto px-4 lg:px-6 max-w-3xl flex flex-col flex-grow min-h-[calc(100vh-4rem)] py-8"
+      id="main-content"
+    >
+      <slot />
+      <Footer />
+    </main>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVK59XQK72"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-QVK59XQK72");
+    </script>
+  </body>
+</html>

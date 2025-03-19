@@ -1,15 +1,19 @@
 ---
-import AppLayout from "@layouts/AppLayout.astro";
+import AppLayout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import authorImage from "../assets/me.png";
+import authorImage from "@assets/me.png";
 import technologies from "@data/technologies.json";
 import Skill from "@components/Skill.astro";
 import { author } from "@data/socials";
 ---
 
-<AppLayout title="David Cojocaru - Junior Software Developer & Cybersecurity Enthusiast">
+<AppLayout
+  title="David Cojocaru - Junior Software Developer & Cybersecurity Enthusiast"
+>
   <header class="sm:flex sm:items-center sm:justify-between">
-    <div class="rounded aspect-square w-40 overflow-hidden inline-flex drop-shadow-none lg:drop-shadow-[0px_0px_35px_rgba(83,70,250,0.90)]">
+    <div
+      class="rounded aspect-square w-40 overflow-hidden inline-flex drop-shadow-none lg:drop-shadow-[0px_0px_35px_rgba(83,70,250,0.90)]"
+    >
       <Image
         src={authorImage}
         alt="Image of the author"
@@ -25,10 +29,18 @@ import { author } from "@data/socials";
         {author}
       </h1>
       <p class="mb-4 dark:text-zinc-300 text-zinc-700 flex items-center">
-        Full Stack Developer from Romania <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.18 38.4" class="inline-block w-6 h-6 ml-2">
-          <path d="M17.75 0v38.4H3.03C1.37 38.4 0 37.04 0 35.37V3.03C0 1.36 1.37 0 3.03 0h14.72z" fill="#002b7f"/>
-          <path fill="#fcd116" d="M37.45 0v38.4h-19.7V0h19.7z"/>
-          <path d="M37.45 38.4V0h14.72c1.67 0 3.03 1.36 3.03 3.03v32.33c0 1.67-1.37 3.03-3.03 3.03H37.45v.01z" fill="#ce1126"/>
+        Full Stack Developer from Romania <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 51.18 38.4"
+          class="inline-block w-6 h-6 ml-2"
+        >
+          <path
+            d="M17.75 0v38.4H3.03C1.37 38.4 0 37.04 0 35.37V3.03C0 1.36 1.37 0 3.03 0h14.72z"
+            fill="#002b7f"></path>
+          <path fill="#fcd116" d="M37.45 0v38.4h-19.7V0h19.7z"></path>
+          <path
+            d="M37.45 38.4V0h14.72c1.67 0 3.03 1.36 3.03 3.03v32.33c0 1.67-1.37 3.03-3.03 3.03H37.45v.01z"
+            fill="#ce1126"></path>
         </svg>
       </p>
       <p
@@ -54,18 +66,20 @@ import { author } from "@data/socials";
       Here are some of the technologies I have been working with:
     </p>
     <ul>
-      {Object.entries(technologies).map(([category, techList]) => (
-        <li class="flex flex-col mb-8 last:mb-0" key={category} id={category}>
-          <h3 class="dark:text-zinc-300 text-zinc-700 mb-4 text-lg font-semibold tracking-tight">
-            {category}
-          </h3>
-          <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3">
-            {techList.map((tech, index) => (
-              <Skill key={index} {...tech} />
-            ))}
-          </ul>
-        </li>
-      ))}
+      {
+        Object.entries(technologies).map(([category, techList]) => (
+          <li class="flex flex-col mb-8 last:mb-0" id={category}>
+            <h3 class="dark:text-zinc-300 text-zinc-700 mb-4 text-lg font-semibold tracking-tight">
+              {category}
+            </h3>
+            <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3">
+              {techList.map((tech, index) => (
+                <Skill key={index.toString()} {...tech} />
+              ))}
+            </ul>
+          </li>
+        ))
+      }
     </ul>
   </section>
 </AppLayout>

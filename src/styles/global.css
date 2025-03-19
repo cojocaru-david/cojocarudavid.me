@@ -1,4 +1,8 @@
-*, *::after, *::before {
+@import "tailwindcss";
+
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,6 +23,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    transition: background 0.4s;
+  transition: background 0.4s;
   background: linear-gradient(180deg, #4e00cc70, #1e80ff70);
 }
