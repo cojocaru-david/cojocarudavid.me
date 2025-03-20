@@ -6,6 +6,8 @@ import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -17,5 +19,5 @@ export default defineConfig({
   },
 
   site: "https://cojocarudavid.me",
-  integrations: [icon(), mdx(), sitemap()],
+  integrations: [icon(), mdx(), sitemap(), react()],
 });

@@ -1,10 +1,11 @@
 ---
 import Link from "@components/Link.astro";
-import { author, defaultMeta, github } from "@data/socials";
+import { author, defaultMeta } from "@data/socials";
 import "@fontsource-variable/montserrat";
 import PostHog from "../components/posthog.astro";
 import Footer from "@components/Footer.astro";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -36,10 +37,6 @@ var navigation = [
   { href: "/projects/", text: "Projects" },
   { href: "/blog/", text: "Blog" },
 ];
-
-if (github) {
-  navigation.push({ href: github, text: "GitHub" });
-}
 ---
 
 <!doctype html>
@@ -81,6 +78,7 @@ if (github) {
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <ClientRouter />
     <link
       rel="apple-touch-icon"
       sizes="114x114"
@@ -127,24 +125,6 @@ if (github) {
     <meta name="date" content={date.toISOString()} />
     <meta name="keywords" content={tags.join(", ")} />
     <PostHog />
-    <style>
-      .gradient-accent {
-        background: linear-gradient(
-          135deg,
-          rgba(59, 130, 246, 0) 20%,
-          rgba(59, 130, 246, 0.12) 40%,
-          rgba(255, 255, 255, 0) 70%
-        );
-      }
-      .dark .gradient-accent {
-        background: linear-gradient(
-          135deg,
-          rgba(59, 130, 246, 0) 20%,
-          rgba(59, 130, 246, 0.06) 40%,
-          rgba(0, 0, 0, 0) 70%
-        );
-      }
-    </style>
   </head>
   <body
     class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-neutral-100 text-base lg:text-lg"

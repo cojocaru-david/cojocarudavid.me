@@ -110,32 +110,3 @@ if (content) {
     </div>
   </a>
 </li>
-
-<style>
-  .blog-card {
-    will-change: transform, box-shadow;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  .bg-grid-pattern {
-    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .blog-card,
-    .blog-card * {
-      transition-duration: 0.1s !important;
-      animation-duration: 0.1s !important;
-    }
-  }
-</style>

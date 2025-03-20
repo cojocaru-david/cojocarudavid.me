@@ -6,8 +6,11 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@data/*": ["src/data/*"],
-      "@assets/*": ["src/assets/*"]
-    }
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]

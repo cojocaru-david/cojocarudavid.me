@@ -1,0 +1,79 @@
+---
+import { technologies, type Technologies } from "@data/socials";
+import { Icon } from "astro-icon/components";
+import { InfiniteScroll } from "@components/ui/infinite-scroll";
+
+type Category = {
+  text: string;
+  logo: string;
+};
+
+const categories = Object.keys(technologies);
+const groupSize = Math.ceil(categories.length / 3);
+const categoryGroups = [
+  categories.slice(0, groupSize),
+  categories.slice(groupSize, groupSize * 2),
+  categories.slice(groupSize * 2),
+];
+---
+
+<div class="z-30 flex w-full flex-col mt-12">
+  <div class="space-y-2">
+    {
+      categoryGroups.map((group, groupIndex) => (
+        <InfiniteScroll
+          duration={30000}
+          direction={groupIndex % 2 === 0 ? "normal" : "reverse"}
+          client:load
+        >
+          {group.flatMap((category) =>
+            technologies[category as keyof Technologies].map(
+              (tech: Category, techIndex: number) => (
+                <div
+                  class="tech-badge mr-5 flex items-center gap-3 rounded-full repo-card dark:text-neutral-400 text-neutral-500 p-3 border dark:border-neutral-700/60 border-neutral-200/80 bg-white/30 dark:bg-neutral-800/30 shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm"
+                  data-tech-name={`${category}-${techIndex}`}
+                >
+                  <span class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 p-2 text-lg shadow-inner dark:bg-neutral-700/30">
+                    <Icon name={tech.logo} class="tech-icon" />
+                  </span>
+                  <span class="font-medium text-neutral-800 dark:text-white">
+                    {tech.text}
+                  </span>
+                </div>
+              )
+            )
+          )}
+        </InfiniteScroll>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const container = document.querySelector(".z-30");
+  if (container) {
+    container.addEventListener("mouseover", (e) => {
+      const badge = (e.target as Element)?.closest(".tech-badge");
+      if (badge) {
+        badge.classList.add("tech-badge-hover");
+        const icon = badge.querySelector(".tech-icon");
+        if (icon) icon.classList.add("tech-icon-hover");
+      }
+    });
+
+    container.addEventListener("mouseout", (e) => {
+      const badge = (e.target as Element)?.closest(".tech-badge");
+      if (badge) {
+        badge.classList.remove("tech-badge-hover");
+        const icon = badge.querySelector(".tech-icon");
+        if (icon) icon.classList.remove("tech-icon-hover");
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".tech-badge").forEach((badge) => {
+      badge.classList.add("tech-badge-visible");
+    });
+  });
+</script>

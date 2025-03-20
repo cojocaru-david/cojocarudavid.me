@@ -2,17 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import authorImage from "../assets/me.png";
-import technologies from "../data/technologies.json";
-import Skill from "../components/Skill.astro";
-import { author } from "../data/socials";
+import Skills from "../components/Skills.astro";
+import { title, description, country, author } from "../data/socials";
 ---
 
-<Layout
-  title="David Cojocaru - Junior Software Developer & Cybersecurity Enthusiast"
->
+<Layout title={title}>
   <main class="space-y-20">
     <section class="relative">
-      <!-- Background gradient blob -->
       <div
         class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
       >
@@ -25,35 +21,35 @@ import { author } from "../data/socials";
 
       <div class="relative mx-auto max-w-4xl">
         <div class="sm:flex sm:items-center sm:justify-between sm:gap-12">
-          <div class="relative group">
+          <div class="relative group overflow-hidden">
             <Image
               src={authorImage}
-              alt="Image of the author"
+              alt={title}
               loading="eager"
               width={320}
               height={320}
-              class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+              class="h-full w-full object-cover bg-transparent"
             />
           </div>
 
           <div class="mt-8 sm:mt-0 sm:max-w-xl">
             <h1
-              class="animate-fade-up text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+              class="text-4xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-5xl animate-fade-in"
             >
               {author}
             </h1>
-            <div class="mt-4 flex items-center gap-2">
+            <div class="mt-4 flex items-center gap-2 animate-slide-right">
               <span
-                class="inline-flex animate-fade-up items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-300"
               >
                 I'm from
               </span>
-              <span class="inline-flex animate-fade-up items-center gap-1">
-                Romania
+              <span class="inline-flex items-center gap-1 group">
+                {country}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 51.18 38.4"
-                  class="inline-block h-6 w-6"
+                  class="inline-block h-6 w-6 transition-transform duration-500 group-hover:rotate-12"
                 >
                   <path
                     d="M17.75 0v38.4H3.03C1.37 38.4 0 37.04 0 35.37V3.03C0 1.36 1.37 0 3.03 0h14.72z"
@@ -66,13 +62,9 @@ import { author } from "../data/socials";
               </span>
             </div>
             <p
-              class="mt-4 animate-fade-up text-base text-zinc-600 dark:text-zinc-400 sm:text-lg"
+              class="py-4 text-neutral-600 dark:text-neutral-400 text-md animate-fade-up"
             >
-              I am a self-taught developer who loves to build things for the
-              web. With 5+ years of coding experience, I'm passionate about
-              creating elegant solutions and exploring new technologies.
-              Currently working on exciting projects while remaining open to new
-              opportunities.
+              {description}
             </p>
           </div>
         </div>
@@ -82,30 +74,15 @@ import { author } from "../data/socials";
     <section class="relative" aria-labelledby="skills-title">
       <h2
         id="skills-title"
-        class="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
+        class="text-2xl font-bold text-neutral-900 dark:text-white animate-fade-in"
       >
         Skills & Technologies
       </h2>
-      <p class="mt-4 text-base text-zinc-600 dark:text-zinc-400 sm:text-lg">
+      <p class="text-sm text-neutral-500 dark:text-neutral-400 animate-fade-up">
         Here are some of the technologies I've been working with:
       </p>
 
-      <div class="mt-12 space-y-12">
-        {
-          Object.entries(technologies).map(([category, techList]) => (
-            <div class="group">
-              <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-200">
-                {category}
-              </h3>
-              <ul class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {techList.map((tech: any, index: number) => (
-                  <Skill {...tech} />
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </div>
+      <Skills client:load />
     </section>
   </main>
 </Layout>

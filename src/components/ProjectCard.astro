@@ -9,6 +9,7 @@ interface Props {
   url: string;
   description: string | null;
   languages: string[];
+  stars: number;
   website: string | null;
 }
 
@@ -149,28 +150,3 @@ try {
     }
   </ul>
 </li>
-
-<style>
-  .repo-card {
-    will-change: transform, box-shadow;
-  }
-
-  .repo-icon-link:hover span {
-    opacity: 1;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  .bg-grid-pattern {
-    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-</style>

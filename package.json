@@ -25,6 +25,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.2.4",
     "@astrojs/mdx": "^4.2.1",
+    "@astrojs/react": "^4.2.1",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.0",
     "@fontsource-variable/montserrat": "^5.2.5",
@@ -32,8 +33,17 @@
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.29",
     "@resvg/resvg-js": "^2.6.2",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
     "astro": "^5.5.3",
-    "astro-icon": "^1.1.5"
+    "astro-icon": "^1.1.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
