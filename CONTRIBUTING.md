@@ -33,7 +33,3 @@ We welcome contributions to improve this project! Please follow these guidelines
 
 2. Open a pull request on GitHub.
 3. Provide a detailed description of your changes and the problem they solve.
-
-## Code of Conduct
-
-By participating in this project, you agree to abide by the [Code of Conduct](CODE_OF_CONDUCT.md).

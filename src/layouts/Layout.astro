@@ -1,0 +1,307 @@
+---
+import Link from "@components/Link.astro";
+import { author, defaultMeta } from "@data/socials";
+import "@fontsource-variable/montserrat";
+import PostHog from "../components/posthog.astro";
+import Footer from "@components/Footer.astro";
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: {
+    src: string;
+    alt: string;
+  };
+  pubDate?: Date;
+  tags?: string[];
+  lastmod?: Date;
+}
+
+const {
+  title,
+  description = defaultMeta.description,
+  ogImage = defaultMeta.ogImage,
+  pubDate,
+  tags = defaultMeta.keywords,
+  lastmod,
+} = Astro.props;
+
+const ogImageURL = new URL(ogImage.src, Astro.site).href;
+const canonicalURL = new URL(Astro.url).href;
+const date = pubDate || lastmod || new Date();
+
+const navigation = [
+  { href: "/", text: "Home" },
+  { href: "/projects/", text: "Projects" },
+  { href: "/blog/", text: "Blog" },
+];
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="scroll-smooth overflow-x-hidden break-words text-neutral-900 dark:text-neutral-100"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title || defaultMeta.title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content={author} />
+    <meta property="og:image:alt" content={ogImage.alt} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://cojocarudavid.me" />
+    <meta name="twitter:creator" content={author} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={ogImage.alt} />
+    <meta name="twitter:domain" content="cojocarudavid.me" />
+    <meta name="theme-color" content="#3B82F6" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-title" content={title} />
+    <meta name="application-name" content={title} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="follow, index" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <ClientRouter />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    {tags && tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    <meta name="author" content={author} />
+    <meta
+      name="pubdate"
+      content={pubDate
+        ? pubDate.toISOString()
+        : "Fri Oct 20 2023 03:00:00 GMT+0300 (Eastern European Summer Time)"}
+    />
+    <meta name="date" content={date.toISOString()} />
+    <meta name="keywords" content={tags.join(", ")} />
+    <PostHog />
+    <style>
+      .gradient-accent {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0) 20%,
+          rgba(59, 130, 246, 0.12) 40%,
+          rgba(255, 255, 255, 0) 70%
+        );
+      }
+      .dark .gradient-accent {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0) 20%,
+          rgba(59, 130, 246, 0.06) 40%,
+          rgba(0, 0, 0, 0) 70%
+        );
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-neutral-100 text-base lg:text-lg"
+  >
+    <div class="fixed inset-0 pointer-events-none -z-10 gradient-accent"></div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-10 w-full backdrop-blur-lg">
+      <nav class="py-1 flex items-center justify-center">
+        <ul class="flex justify-center items-center gap-6 text-sm">
+          {
+            navigation.map((item) => (
+              <li>
+                <Link
+                  {...item}
+                  addClass="font-bold hover:text-blue-400 transition-colors"
+                />
+              </li>
+            ))
+          }
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/50 transition-colors"
+            aria-label="Toggle theme"
+          >
+            <Icon
+              id="sun-icon"
+              name="mdi:weather-sunny"
+              class="hidden w-5 h-5"
+            />
+            <Icon id="moon-icon" name="mdi:weather-night" class="w-5 h-5" />
+          </button>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Skip to content link for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-neutral-100 focus:rounded"
+    >
+      Skip to content
+    </a>
+
+    <!-- Main content -->
+    <main
+      class="w-full mx-auto px-4 lg:px-8 max-w-4xl flex flex-col flex-grow py-8 md:py-12 font-sans"
+      id="main-content"
+    >
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Back to top button with theme-adaptive colors -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 z-40 p-2 rounded-full bg-blue-500 dark:bg-blue-700 text-neutral-100 shadow-lg opacity-0 translate-y-8 transition-all duration-300"
+      aria-label="Back to top"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
+
+    <script is:inline>
+      const updateTheme = (isDark) => {
+        document.documentElement.classList.toggle("dark", isDark);
+        const sunIcons = [
+          document.getElementById("sun-icon"),
+          document.getElementById("mobile-sun-icon"),
+        ];
+        const moonIcons = [
+          document.getElementById("moon-icon"),
+          document.getElementById("mobile-moon-icon"),
+        ];
+        sunIcons.forEach((icon) => icon?.classList.toggle("hidden", !isDark));
+        moonIcons.forEach((icon) => icon?.classList.toggle("hidden", isDark));
+        const themeLabel = document.getElementById("theme-label");
+        if (themeLabel)
+          themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      };
+
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      let isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+
+      function setupEvent() {
+        document
+          .getElementById("theme-toggle")
+          .addEventListener("click", () => {
+            const isDark = document.documentElement.classList.contains("dark");
+            updateTheme(!isDark);
+          });
+      }
+
+      updateTheme(isDark);
+      document.addEventListener("astro:after-swap", () => {
+        isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+        updateTheme(isDark);
+        setupEvent();
+      });
+
+      const progressBar = document.getElementById("progress-bar");
+      if (progressBar) {
+        window.addEventListener("scroll", () => {
+          const scrollTop =
+            document.documentElement.scrollTop || document.body.scrollTop;
+          const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+          const scrolled = (scrollTop / scrollHeight) * 100;
+          progressBar.style.width = scrolled + "%";
+        });
+      }
+
+      const backToTopButton = document.getElementById("back-to-top");
+      if (backToTopButton) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopButton.classList.replace("opacity-0", "opacity-100");
+            backToTopButton.classList.replace("translate-y-8", "translate-y-0");
+          } else {
+            backToTopButton.classList.replace("opacity-100", "opacity-0");
+            backToTopButton.classList.replace("translate-y-0", "translate-y-8");
+          }
+        });
+        backToTopButton.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      setupEvent();
+    </script>
+
+    <!-- Analytics script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVK59XQK72"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-QVK59XQK72");
+    </script>
+  </body>
+</html>

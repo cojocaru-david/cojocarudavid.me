@@ -1,5 +1,5 @@
 ---
-import AppLayout from "@layouts/AppLayout.astro";
+import AppLayout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import data from "@data/contributions.json";
 import ProjectCard from "@components/ProjectCard.astro";
@@ -11,6 +11,7 @@ interface Project {
   role: "author" | "contributor" | "maintainer";
   url: string;
   languages: string[];
+  website?: string;
 }
 
 const openSourceContributions = data as Project[];
@@ -31,16 +32,37 @@ openSourceContributions.sort((a, b) => {
   return 0;
 });
 
-const description = "I love open source and I have been contributing to different projects for the some time. Here is a list of projects that I have contributed to and authored.";
-
+const description =
+  "I love open source and I have been contributing to different projects for the some time. Here is a list of projects that I have contributed to and authored.";
 ---
 
-<AppLayout title="David Cojocaru - Projects" 
-           tags={["projects", "open source", "contributions", "github", "david cojocaru", "david", "cojocaru", "davidcojocaru", "romania", "developer", "software engineer", "software developer", "software engineering", "software development", "web developer", "web development", "full stack", "full stack developer" ]}
-           description={description}>
+<AppLayout
+  title="David Cojocaru - Projects"
+  tags={[
+    "projects",
+    "open source",
+    "contributions",
+    "github",
+    "david cojocaru",
+    "david",
+    "cojocaru",
+    "davidcojocaru",
+    "romania",
+    "developer",
+    "software engineer",
+    "software developer",
+    "software engineering",
+    "software development",
+    "web developer",
+    "web development",
+    "full stack",
+    "full stack developer",
+  ]}
+  description={description}
+>
   <Header title="Open Source" />
   <p
-    class="max-w-prose mb-10 font-normal dark:text-zinc-400 text-zinc-600 leading-relaxed"
+    class="max-w-prose mb-10 font-normal dark:text-neutral-400 text-neutral-600 leading-relaxed"
   >
     {description}
   </p>

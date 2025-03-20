@@ -1,5 +1,5 @@
 ---
-import AppLayout from "@layouts/AppLayout.astro";
+import AppLayout from "@layouts/Layout.astro";
 import Pagination from "@components/Pagination.astro";
 import { Image } from "astro:assets";
 import authorImage from "../assets/me.png";
@@ -28,12 +28,6 @@ const ogImage = {
 const fullPubDate = pubDate.toLocaleDateString("en", {
   dateStyle: "full",
 });
-
-const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
 ---
 
 <AppLayout
@@ -49,35 +43,37 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
     >
       {title}
     </h1>
-    <div class="inline-flex items-center mb-8 justify-between align-middle flex-wrap gap-2">
-      <time
-      datetime={pubDate.toISOString()}
-      class="block text-center dark:text-zinc-400 text-zinc-600 mb-4 text-sm sm:text-base"
+    <div
+      class="inline-flex items-center mb-8 justify-between align-middle flex-wrap gap-2"
     >
-      {fullPubDate}
-    </time>
-    <div class="flex items-center gap-4">
-      <div class="aspect-square rounded-full overflow-hidden">
-        <Image
-          src={authorImage}
-          alt="Image of the author"
-          loading="eager"
-          class="aspect-square w-10"
-          width={80}
-          height={80}
-        />
+      <time
+        datetime={pubDate.toISOString()}
+        class="block text-center dark:text-neutral-400 text-neutral-600 mb-4 text-sm sm:text-base"
+      >
+        {fullPubDate}
+      </time>
+      <div class="flex items-center gap-4">
+        <div class="aspect-square rounded-sm overflow-hidden">
+          <Image
+            src={authorImage}
+            alt="Image of the author"
+            loading="eager"
+            class="aspect-square w-10"
+            width={80}
+            height={80}
+          />
+        </div>
+        <p class="dark:text-neutral-400 text-neutral-700 text-sm">
+          <span class="block font-semibold">{author}</span>
+          <a
+            class="dark:text-blue-400 text-blue-600 hover:underline block"
+            href="https://github.com/cojocaru-david/cojocarudavid.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{tag}
+          </a>
+        </p>
       </div>
-      <p class="dark:text-zinc-400 text-zinc-700 text-sm">
-        <span class="block font-semibold">{author}</span>
-        <a
-          class="dark:text-blue-400 text-blue-600 hover:underline block"
-          href="https://github.com/cojocaru-david/cojocarudavid.me"
-          target="_blank"
-          rel="noopener noreferrer"
-          >{tag}
-        </a>
-      </p>
-    </div>
     </div>
     <Image
       src={image}
@@ -88,8 +84,20 @@ const fullUpdatedDate = updatedDate?.toLocaleDateString("en", {
       height={630}
     />
   </header>
+
+  <div
+    id="progress-container"
+    class="fixed top-0 left-0 w-full h-1 z-50 bg-transparent"
+  >
+    <div
+      id="progress-bar"
+      class="h-full bg-blue-600 w-0 transition-all duration-200"
+    >
+    </div>
+  </div>
+
   <article
-    class="prose dark:prose-invert lg:prose-lg dark:prose-code:text-zinc-300 dark:prose-a:text-blue-400 prose-a:text-blue-600 max-w-none hover:prose-a:underline focus:prose-a:underline prose-a:no-underline dark:prose-headings:text-teal-500 prose-img:rounded-lg"
+    class="prose dark:prose-invert lg:prose-lg dark:prose-code:text-neutral-300 dark:prose-a:text-blue-400 prose-a:text-blue-600 max-w-none hover:prose-a:underline focus:prose-a:underline prose-a:no-underline dark:prose-headings:text-teal-500 prose-img:rounded-lg"
   >
     <slot />
   </article>

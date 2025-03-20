@@ -3,9 +3,21 @@ title: Install nginx secure on Ubuntu 22.04, 20.04, 18.04
 description: In this tutorial, we will show you how to install and secure Nginx on an Ubuntu 22.04, 20.04, 18.04 server using Let's Encrypt and iptables.
 pubDate: 2023-10-19
 updatedDate: 2023-10-20
-hero: "~/assets/heros/nginx_secure.png"
+hero: "@assets/heros/nginx_secure.png"
 heroAlt: "Nginx secure on Ubuntu"
-tags: ["nginx", "ubuntu", "linux", "webserver", "security", "firewall", "iptables", "letsencrypt", "certbot"]
+tags:
+  [
+    "nginx",
+    "ubuntu",
+    "linux",
+    "webserver",
+    "security",
+    "firewall",
+    "iptables",
+    "letsencrypt",
+    "certbot",
+  ]
+slug: install-nginx-secure
 ---
 
 In this tutorial, we will show you how to install and secure Nginx on an Ubuntu 22.04, 20.04, 18.04 server using Let's Encrypt and iptables.
@@ -81,14 +93,14 @@ iptables -t mangle -A PREROUTING -p tcp --tcp-flags ALL NONE -j DROP
 Finally, block all other incoming traffic:
 
 ```bash
-iptables -t mangle -A PREROUTING -s 224.0.0.0/3 -j DROP 
-iptables -t mangle -A PREROUTING -s 169.254.0.0/16 -j DROP 
-iptables -t mangle -A PREROUTING -s 172.16.0.0/12 -j DROP 
-iptables -t mangle -A PREROUTING -s 192.0.2.0/24 -j DROP 
-iptables -t mangle -A PREROUTING -s 192.168.0.0/16 -j DROP 
-iptables -t mangle -A PREROUTING -s 10.0.0.0/8 -j DROP 
-iptables -t mangle -A PREROUTING -s 0.0.0.0/8 -j DROP 
-iptables -t mangle -A PREROUTING -s 240.0.0.0/5 -j DROP 
+iptables -t mangle -A PREROUTING -s 224.0.0.0/3 -j DROP
+iptables -t mangle -A PREROUTING -s 169.254.0.0/16 -j DROP
+iptables -t mangle -A PREROUTING -s 172.16.0.0/12 -j DROP
+iptables -t mangle -A PREROUTING -s 192.0.2.0/24 -j DROP
+iptables -t mangle -A PREROUTING -s 192.168.0.0/16 -j DROP
+iptables -t mangle -A PREROUTING -s 10.0.0.0/8 -j DROP
+iptables -t mangle -A PREROUTING -s 0.0.0.0/8 -j DROP
+iptables -t mangle -A PREROUTING -s 240.0.0.0/5 -j DROP
 iptables -t mangle -A PREROUTING -s 127.0.0.0/8 ! -i lo -j DROP
 ```
 
@@ -138,14 +150,14 @@ server {
 server {
     listen 443 ssl http2;
     server_name example.com www.example.com;
-    
+
     ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
     ssl_session_cache shared:SSL:10m;
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384";
     ssl_prefer_server_ciphers on;
-    
+
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
     add_header X-Frame-Options SAMEORIGIN;
     add_header X-Content-Type-Options nosniff;

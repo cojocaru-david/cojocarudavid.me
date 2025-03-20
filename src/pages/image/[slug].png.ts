@@ -1,10 +1,17 @@
-import satori from 'satori';
-import { html } from 'satori-html';
-import { Resvg } from '@resvg/resvg-js';
-import InterRegular from '@fontsource/inter/files/inter-latin-400-normal.woff';
-import InterBold from '@fontsource/inter/files/inter-latin-700-normal.woff';
-import { getCollection } from 'astro:content';
-import type { APIContext } from 'astro';
+import satori from "satori";
+import { html } from "satori-html";
+import { Resvg } from "@resvg/resvg-js";
+import { getCollection } from "astro:content";
+import type { APIContext } from "astro";
+import fs from "fs";
+import path from "path";
+
+const MontserratRegular = fs.readFileSync(
+  path.resolve("./src/assets/_montserrat_regular.ttf")
+);
+const MontserratBold = fs.readFileSync(
+  path.resolve("./src/assets/_montserrat_bold.ttf")
+);
 
 const dimensions = {
   width: 1200,
@@ -20,28 +27,31 @@ interface Props {
 
 export async function GET(context: APIContext) {
   const { title, pubDate, description, tags } = context.props as Props;
-  const date = pubDate.toLocaleDateString('en-US', { dateStyle: 'full' });
+  const date = pubDate.toLocaleDateString("en-US", { dateStyle: "full" });
 
   const markup = html`
-    <div tw="bg-zinc-900 flex flex-col w-full h-full rounded-lg overflow-hidden shadow-lg text-white border border-zinc-700/50 divide-y divide-zinc-700/50 divide-solid">
-
+    <div
+      tw="bg-zinc-900 flex flex-col w-full h-full rounded-xl overflow-hidden shadow-lg text-white border border-zinc-700/50 "
+    >
       <div tw="flex flex-col w-full h-4/5 p-10 justify-center">
-        <div tw="flex text-zinc-400 text-xl">
-          ${date}
-        </div>
-        <div tw="flex text-6xl mb-4 w-full font-bold leading-snug tracking-tight text-transparent bg-indigo-400" style="background-clip: text; -webkit-background-clip: text; background: linear-gradient(90deg, rgb(87, 57, 249), rgb(98, 203, 242));">
+        <div tw="flex text-zinc-400 text-xl">${date}</div>
+        <div
+          tw="flex text-6xl mb-4 w-full font-bold leading-snug tracking-tight text-transparent bg-indigo-400"
+          style="background-clip: text; -webkit-background-clip: text; background: linear-gradient(90deg, rgb(87, 57, 249), rgb(98, 203, 242));"
+        >
           ${title}
         </div>
         <div tw="text-zinc-400 text-xl mt-4">${description}</div>
       </div>
 
-      <div tw="w-full h-1/5 border-t border-zinc-700/50 flex p-10 items-center justify-between text-2xl">
-      
+      <div
+        tw="w-full h-1/5 border-t border-zinc-700/50 flex p-10 items-center justify-between text-2xl"
+      >
         <div tw="flex items-center">
           <span tw="ml-3 text-zinc-500">cojocarudavid.me</span>
         </div>
 
-        <div tw="flex items-center bg-zinc-800/50 rounded-lg px-4 py-2">
+        <div tw="flex items-center bg-zinc-800/50 rounded-xl px-4 py-2">
           <img src="https://i.imgur.com/0KpLrT2.png" tw="w-15 h-15" />
           <div tw="flex flex-col ml-4 border-l border-zinc-700/50 pl-4">
             <span tw="text-zinc-400 font-semibold">David Cojocaru</span>
@@ -49,20 +59,19 @@ export async function GET(context: APIContext) {
           </div>
         </div>
       </div>
-
     </div>
   `;
 
   const svg = await satori(markup, {
     fonts: [
       {
-        name: 'Inter',
-        data: Buffer.from(InterRegular),
+        name: "Montserrat",
+        data: MontserratRegular,
         weight: 400,
       },
       {
-        name: 'Inter',
-        data: Buffer.from(InterBold),
+        name: "Montserrat",
+        data: MontserratBold,
         weight: 700,
       },
     ],
@@ -72,31 +81,30 @@ export async function GET(context: APIContext) {
 
   const image = new Resvg(svg, {
     fitTo: {
-      mode: 'width',
-      value: dimensions.width
+      mode: "width",
+      value: dimensions.width,
     },
   }).render();
 
   return new Response(image.asPng(), {
     headers: {
-      'Content-Type': 'image/png',
-      'Cache-Control': 'public, max-age=31536000, immutable',
-      'Content-Length': image.asPng().length.toString(),
-      'Surrogate-Key': tags.join(' '),
-      'Query-String-Hash': 'image',
-      'Cache-Tag': 'image',
-      'Keep-Alive': 'timeout=5, max=1000',
-      'X-Content-Type-Options': 'nosniff'
+      "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=31536000, immutable",
+      "Content-Length": image.asPng().length.toString(),
+      "Surrogate-Key": tags.join(" "),
+      "Query-String-Hash": "image",
+      "Cache-Tag": "image",
+      "Keep-Alive": "timeout=5, max=1000",
+      "X-Content-Type-Options": "nosniff",
     },
   });
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection("blog");
   const paths = posts.map((post) => ({
     params: {
-      slug: post.slug,
-
+      slug: post.id,
     },
     props: {
       title: post.data.title,
