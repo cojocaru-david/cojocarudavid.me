@@ -31,7 +31,7 @@ export async function GET(context: APIContext) {
 
   const markup = html`
     <div
-      tw="bg-zinc-900 flex flex-col w-full h-full rounded-lg overflow-hidden shadow-lg text-white border border-zinc-700/50 divide-y divide-zinc-700/50 divide-solid"
+      tw="bg-zinc-900 flex flex-col w-full h-full rounded-xl overflow-hidden shadow-lg text-white border border-zinc-700/50 "
     >
       <div tw="flex flex-col w-full h-4/5 p-10 justify-center">
         <div tw="flex text-zinc-400 text-xl">${date}</div>
@@ -51,7 +51,7 @@ export async function GET(context: APIContext) {
           <span tw="ml-3 text-zinc-500">cojocarudavid.me</span>
         </div>
 
-        <div tw="flex items-center bg-zinc-800/50 rounded-lg px-4 py-2">
+        <div tw="flex items-center bg-zinc-800/50 rounded-xl px-4 py-2">
           <img src="https://i.imgur.com/0KpLrT2.png" tw="w-15 h-15" />
           <div tw="flex flex-col ml-4 border-l border-zinc-700/50 pl-4">
             <span tw="text-zinc-400 font-semibold">David Cojocaru</span>

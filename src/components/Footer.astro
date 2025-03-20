@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+const factResponse = await fetch("https://catfact.ninja/fact");
+const factData = await factResponse.json();
 ---
 
 <script>
@@ -8,29 +10,90 @@ import { Icon } from "astro-icon/components";
   if (yearElement) {
     yearElement.innerText = currentYear.toString();
   }
+
+  // add a little fun with random cat emojis
+  const emojis = ["😺", "🐱", "😸", "😻", "🙀", "😽", "😹", "😿", "😾"];
+  const emojiContainer = document.getElementById("random-emoji");
+  if (emojiContainer) {
+    emojiContainer.innerText =
+      emojis[Math.floor(Math.random() * emojis.length)];
+  }
 </script>
 
-<footer
-  class="flex items-center text-neutral-400 mt-7 justify-center h-16 w-full flex-col gap-2"
->
-  <div class="text-sm text-center cursor-default">
-    2021 - <span id="year"></span>
-    &copy;&nbsp;<a
-      href="https://github.com/cojocaru-david"
-      class="text-neutral-200 hover:text-neutral-500">David Cojocaru</a
-    >
+<footer class="px-4 py-6 mt-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <!-- Left section -->
+      <div class="flex flex-col items-center md:items-start">
+        <div class="text-sm font-medium">
+          2021 - <span id="year"></span> &copy;&nbsp;<a
+            href="https://github.com/cojocaru-david"
+            class="text-neutral-200 hover:text-primary-500 transition duration-300"
+            target="_blank"
+            rel="noopener noreferrer">David Cojocaru</a
+          >
+        </div>
+        <div class="text-xs mt-1">
+          Open-source under MIT license <span id="random-emoji" class="ml-1"
+          ></span>
+        </div>
+      </div>
+
+      <!-- Middle section for cat fact -->
+      <div class="w-full md:w-auto max-w-xs md:max-w-sm">
+        <div
+          class="bg-neutral-800/30 p-3 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+        >
+          <p class="text-xs italic mb-1 text-neutral-300">Random Cat Fact:</p>
+          <p class="text-sm font-medium text-neutral-200">
+            "{factData?.fact || "Loading a purr-fect fact..."}"
+          </p>
+        </div>
+      </div>
+
+      <!-- Right section -->
+      <div class="flex items-center gap-3">
+        <a
+          href="mailto:contact@cojocarudavid.me"
+          class="text-neutral-200 hover:text-primary-500 transition duration-300"
+          title="Email"
+          rel="noopener noreferrer"
+        >
+          <Icon name="mdi:email" class="w-5 h-5" />
+        </a>
+        <a
+          href="https://github.com/cojocaru-david"
+          class="text-neutral-200 hover:text-primary-500 transition duration-300"
+          title="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="mdi:github" class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
   </div>
-  <p
-    class="text-sm text-center flex flex-col items-center justify-center mt-1 gap-1"
-  >
-    <a
-      href="mailto:contact@cojocarudavid.me"
-      class="text-neutral-200 hover:text-neutral-500"
-      title="Email"
-      rel="noopener noreferrer"
-    >
-      <Icon name="mdi:email" class="w-4 h-4" />
-    </a>
-    All rights reserved.
-  </p>
 </footer>
+
+<style>
+  @media (max-width: 640px) {
+    footer {
+      padding: 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    #random-emoji {
+      animation: wave 1s infinite alternate;
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+</style>

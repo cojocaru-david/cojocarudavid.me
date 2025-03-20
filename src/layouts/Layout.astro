@@ -1,11 +1,8 @@
 ---
 import Link from "@components/Link.astro";
-import { author, defaultMeta } from "@data/socials";
-import navigation from "@data/navigation.json";
+import { author, defaultMeta, github } from "@data/socials";
 import "@fontsource-variable/montserrat";
 import PostHog from "../components/posthog.astro";
-import { ClientRouter } from "astro:transitions";
-import { Icon } from "astro-icon/components";
 import Footer from "@components/Footer.astro";
 import "../styles/global.css";
 
@@ -33,6 +30,28 @@ const {
 const ogImageURL = new URL(ogImage.src, Astro.site).href;
 const canonicalURL = new URL(Astro.url).href;
 const date = pubDate || lastmod || new Date();
+
+var navigation = [
+  {
+    href: "/",
+    text: "Home",
+  },
+  {
+    href: "/projects/",
+    text: "Projects",
+  },
+  {
+    href: "/blog/",
+    text: "Blog",
+  },
+];
+
+if (github) {
+  navigation.push({
+    href: github,
+    text: "GitHub",
+  });
+}
 ---
 
 <!doctype html>
@@ -120,7 +139,6 @@ const date = pubDate || lastmod || new Date();
     <meta name="date" content={date.toISOString()} />
     <meta name="keywords" content={tags.join(", ")} />
     <PostHog />
-    <ClientRouter />
   </head>
   <body
     class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-neutral-100 text-base lg:text-lg"

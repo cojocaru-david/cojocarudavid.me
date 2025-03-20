@@ -3,6 +3,7 @@
 @theme {
   --font-sans: "Montserrat Variable", sans-serif;
 }
+@plugin '@tailwindcss/typography';
 
 body,
 html {

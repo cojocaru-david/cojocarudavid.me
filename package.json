@@ -3,6 +3,7 @@
   "type": "module",
   "version": "2.0.1",
   "license": "MIT",
+  "private": false,
   "engines": {
     "node": ">=19.0.0"
   },
@@ -15,7 +16,6 @@
     "url": "https://github.com/cojocaru-david/cojocarudavid.me/issues"
   },
   "homepage": "https://cojocarudavid.me",
-  "private": false,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -23,6 +23,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.2.4",
     "@astrojs/mdx": "^4.2.1",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.0",
@@ -31,10 +32,12 @@
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.29",
     "@resvg/resvg-js": "^2.6.2",
-    "@tailwindcss/vite": "^4.0.14",
     "astro": "^5.5.3",
-    "astro-icon": "^1.1.5",
-    "marked": "^15.0.7",
+    "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.0.14",
     "satori": "^0.12.1",
     "satori-html": "^0.3.2",
     "tailwindcss": "^4.0.14"
