@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, sharpImageService } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
@@ -14,9 +14,7 @@ export default defineConfig({
   },
   prefetch: true,
   image: {
-    service: {
-      entrypoint: "astro/assets/services/passthrough",
-    },
+    service: sharpImageService(),
   },
   site: "https://cojocarudavid.me",
   integrations: [icon(), sitemap(), react()],
