@@ -102,7 +102,7 @@ export function InfiniteScroll({
   return (
     <div
       className={cn(
-        "relative flex shrink-0 flex-col gap-4 overflow-hidden py-2",
+        "relative flex shrink-0 flex-col gap-4 overflow-hidden py-3",
         className
       )}
       onMouseEnter={handleMouseEnter}
@@ -123,7 +123,7 @@ export function InfiniteScroll({
       </div>
       {showFade && (
         <div
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 bg-linear-to-r from-background via-transparent to-background"
           style={{ "--container-color": containerColor } as React.CSSProperties}
         />
       )}

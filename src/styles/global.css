@@ -97,66 +97,6 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes scale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: translateX(-5px);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: translateX(5px);
-  }
-}
-
-@keyframes shine {
-  from {
-    background-position: -200% center;
-  }
-  to {
-    background-position: 200% center;
-  }
-}
-
 .animate-blob {
   animation: blob 10s infinite ease-in-out;
   will-change: transform;
@@ -164,9 +104,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 .animate-fade-in {
   opacity: 0;
-  animation: fade-in 1.8s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
   will-change: opacity;
-  -webkit-animation: fade-in 1.8s ease-out forwards;
+  -webkit-animation: fade-in 0.8s ease-out forwards;
 }
 
 .animate-slide-right {
@@ -231,79 +171,17 @@ body::-webkit-scrollbar-thumb:hover {
   will-change: transform, box-shadow;
 }
 
-.animate-bounce {
-  animation: bounce 2s ease-in-out infinite;
-  will-change: transform;
-}
-
-.animate-spin {
-  animation: spin 2s linear infinite;
-  will-change: transform;
-}
-
-.animate-scale {
-  animation: scale 3s ease-in-out infinite;
-  will-change: transform;
-}
-
-.animate-shake {
-  animation: shake 0.5s ease infinite;
-  will-change: transform;
-}
-
-.animate-shine {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  background-size: 200% auto;
-  animation: shine 3s linear infinite;
-  will-change: background-position;
-}
-
-.animate-hover-lift {
-  transition: transform 0.3s ease;
-}
-
-.animate-hover-lift:hover {
-  transform: translateY(-10px);
-}
-
-.animate-hover-grow {
-  transition: transform 0.3s ease;
-}
-
-.animate-hover-grow:hover {
-  transform: scale(1.05);
-}
-
-.animate-glow {
-  animation: pulse 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 5px currentColor);
-  will-change: filter, opacity;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .animate-blob,
   .animate-fade-in,
   .animate-slide-right,
-  .animate-fade-up,
-  .animate-bounce,
-  .animate-spin,
-  .animate-scale,
-  .animate-shake,
-  .animate-shine,
-  .animate-glow {
+  .animate-fade-up {
     animation-duration: 0.1s !important;
     transition-duration: 0.1s !important;
   }
 
   .tech-badge,
-  .tech-icon,
-  .animate-hover-lift,
-  .animate-hover-grow {
+  .tech-icon {
     transition: none;
   }
 

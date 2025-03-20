@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import authorImage from "../assets/me.png";
-import Skills from "../components/Skills.astro";
+import Skills from "@components/Skills";
 import { title, description, country, author } from "../data/socials";
 ---
 
@@ -28,7 +28,7 @@ import { title, description, country, author } from "../data/socials";
               loading="eager"
               width={320}
               height={320}
-              class="h-full w-full object-cover bg-transparent"
+              class="h-auto w-40 sm:w-48 md:w-56 lg:w-64 object-cover bg-transparent"
             />
           </div>
 
