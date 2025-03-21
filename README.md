@@ -13,7 +13,7 @@
 
 **cojocarudavid.me** is my **personal portfolio website**, built with **Astro.js** and styled using **Tailwind CSS**. It serves as a hub for my projects, blog posts, and personal updates.
 
-![Website Screenshot](.github/smartmockups_m1jn1m6x.jpg)
+![Website Screenshot](.github/image.png)
 
 ---
 
