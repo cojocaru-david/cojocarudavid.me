@@ -3,7 +3,6 @@ title: Introduction to Progressive Web Apps (PWAs)
 description: Progressive Web Apps (PWAs) are a new type of web application that combines the best of web and mobile applications. This article provides an introduction to PWAs and their benefits.
 pubDate: 2023-11-08
 updatedDate: 2023-11-08
-hero: "@assets/heros/pwa_intro.png"
 heroAlt: "Illustration of progressive web apps"
 tags:
   [

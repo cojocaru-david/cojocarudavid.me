@@ -3,7 +3,6 @@ title: Install nginx secure on Ubuntu 22.04, 20.04, 18.04
 description: In this tutorial, we will show you how to install and secure Nginx on an Ubuntu 22.04, 20.04, 18.04 server using Let's Encrypt and iptables.
 pubDate: 2023-10-19
 updatedDate: 2023-10-20
-hero: "@assets/heros/nginx_secure.png"
 heroAlt: "Nginx secure on Ubuntu"
 tags:
   [
