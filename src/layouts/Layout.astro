@@ -5,7 +5,6 @@ import "@fontsource-variable/montserrat";
 import PostHog from "../components/posthog.astro";
 import Footer from "@components/Footer.astro";
 import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
 import { Icon } from "astro-icon/components";
 
 interface Props {
@@ -79,7 +78,6 @@ const navigation = [
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
-    <ClientRouter />
     <link
       rel="apple-touch-icon"
       sizes="114x114"
@@ -220,6 +218,12 @@ const navigation = [
     </button>
 
     <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      let isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+
       const updateTheme = (isDark) => {
         document.documentElement.classList.toggle("dark", isDark);
         const sunIcons = [
@@ -237,12 +241,6 @@ const navigation = [
           themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
         localStorage.setItem("theme", isDark ? "dark" : "light");
       };
-
-      const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      let isDark = savedTheme ? savedTheme === "dark" : prefersDark;
 
       function setupEvent() {
         document

@@ -3,7 +3,6 @@ title: Best Practices for Mobile Website Optimization
 description: In the digital age, mobile optimization is crucial for any website. This article provides best practices to ensure your website delivers an optimal experience on mobile devices.
 pubDate: 2023-11-08
 updatedDate: 2023-11-08
-hero: "@assets/heros/mobile_website_optimization_best_practices.png"
 heroAlt: "Illustration of mobile website optimization best practices"
 tags:
   ["web", "mobile", "optimization", "best practices", "website", "development"]
