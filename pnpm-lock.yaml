@@ -27,8 +27,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
       '@iconify-json/simple-icons':
-        specifier: ^1.2.31
-        version: 1.2.31
+        specifier: ^1.2.32
+        version: 1.2.32
       '@resvg/resvg-js':
         specifier: ^2.6.2
         version: 2.6.2
@@ -382,8 +382,8 @@ packages:
   '@iconify-json/mdi@1.2.3':
     resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
 
-  '@iconify-json/simple-icons@1.2.31':
-    resolution: {integrity: sha512-xBUPtvkcSAiXs9DfVtudhLddQtQYin3I3Ph/W5FNYA0oE6r2hmLB8TgOog9OjOt1Sxn3IB5+4n5+64DMf2xNmQ==}
+  '@iconify-json/simple-icons@1.2.32':
+    resolution: {integrity: sha512-gxgLq0raip7SJaeJ0302vwhsqupQttS21B93Ci1kA/++B+hIgGw71HzTOWQoUhwjlrdWcoVUxSvpPJoMs7oURg==}
 
   '@iconify/tools@4.1.2':
     resolution: {integrity: sha512-q6NzLQYEN9zkDfcyBqD3vItHcZw97w/s++3H3TBxUORr57EfHxj6tOW6fyufDjMq+Vl56WXWaPx1csBPYlI5CA==}
@@ -2764,7 +2764,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.31':
+  '@iconify-json/simple-icons@1.2.32':
     dependencies:
       '@iconify/types': 2.0.0
 
