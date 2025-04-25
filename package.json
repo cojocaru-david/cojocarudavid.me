@@ -23,7 +23,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.4",
+    "@astrojs/react": "^4.2.5",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.0",
     "@fontsource-variable/montserrat": "^5.2.5",
