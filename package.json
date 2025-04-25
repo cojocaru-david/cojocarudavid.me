@@ -29,7 +29,7 @@
     "@fontsource-variable/montserrat": "^5.2.5",
     "@iconify-json/cib": "^1.2.2",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.32",
+    "@iconify-json/simple-icons": "^1.2.33",
     "@resvg/resvg-js": "^2.6.2",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
