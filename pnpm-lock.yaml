@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@astrojs/react':
         specifier: ^4.2.5
-        version: 4.2.5(@types/node@22.13.10)(@types/react-dom@19.1.5(@types/react@19.1.2))(@types/react@19.1.2)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 4.2.5(@types/node@22.13.10)(@types/react-dom@19.1.5(@types/react@19.2.8))(@types/react@19.2.8)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@astrojs/rss':
         specifier: ^4.0.12
         version: 4.0.12
@@ -33,11 +33,11 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       '@types/react':
-        specifier: ^19.1.2
-        version: 19.1.2
+        specifier: ^19.2.8
+        version: 19.2.8
       '@types/react-dom':
         specifier: ^19.1.5
-        version: 19.1.5(@types/react@19.1.2)
+        version: 19.1.5(@types/react@19.2.8)
       astro:
         specifier: ^5.7.5
         version: 5.7.5(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.40.1)(typescript@5.8.2)
@@ -1028,8 +1028,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.1.2':
-    resolution: {integrity: sha512-oxLPMytKchWGbnQM9O7D67uPa9paTNxO7jVoNMXgkkErULBPhPARCfkKL9ytcIJJRGjbsVwW4ugJzyFFvm/Tiw==}
+  '@types/react@19.2.8':
+    resolution: {integrity: sha512-3MbSL37jEchWZz2p2mjntRZtPt837ij10ApxKfgmXCTuHWagYg7iA5bqPw6C8BMPfwidlvfPI/fxOc42HLhcyg==}
 
   '@types/sax@1.2.7':
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
@@ -1304,8 +1304,8 @@ packages:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
 
-  csstype@3.1.3:
-    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
@@ -2273,6 +2273,7 @@ packages:
   sitemap@8.0.0:
     resolution: {integrity: sha512-+AbdxhM9kJsHtruUF39bwS/B0Fytw6Fr1o4ZAIAEqA6cke2xcoO2GleBw9Zw7nRzILVEgz7zBM5GiTJjie1G9A==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
+    deprecated: 'SECURITY: Multiple vulnerabilities fixed in 8.0.1 (XML injection, path traversal, command injection, protocol injection). Upgrade immediately: npm install sitemap@8.0.1'
     hasBin: true
 
   smol-toml@1.3.1:
@@ -2579,6 +2580,7 @@ packages:
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
@@ -2702,10 +2704,10 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/react@4.2.5(@types/node@22.13.10)(@types/react-dom@19.1.5(@types/react@19.1.2))(@types/react@19.1.2)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@astrojs/react@4.2.5(@types/node@22.13.10)(@types/react-dom@19.1.5(@types/react@19.2.8))(@types/react@19.2.8)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@types/react': 19.1.2
-      '@types/react-dom': 19.1.5(@types/react@19.1.2)
+      '@types/react': 19.2.8
+      '@types/react-dom': 19.1.5(@types/react@19.2.8)
       '@vitejs/plugin-react': 4.3.4(vite@6.3.4(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.30.1))
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
@@ -3454,13 +3456,13 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
-  '@types/react-dom@19.1.5(@types/react@19.1.2)':
+  '@types/react-dom@19.1.5(@types/react@19.2.8)':
     dependencies:
-      '@types/react': 19.1.2
+      '@types/react': 19.2.8
 
-  '@types/react@19.1.2':
+  '@types/react@19.2.8':
     dependencies:
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@types/sax@1.2.7':
     dependencies:
@@ -3826,7 +3828,7 @@ snapshots:
     dependencies:
       css-tree: 2.2.1
 
-  csstype@3.1.3: {}
+  csstype@3.2.3: {}
 
   debug@4.4.0:
     dependencies:
