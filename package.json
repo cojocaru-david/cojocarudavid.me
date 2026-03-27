@@ -25,7 +25,7 @@
   "dependencies": {
     "@astrojs/react": "^4.2.5",
     "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/montserrat": "^5.2.6",
     "@iconify-json/cib": "^1.2.2",
     "@iconify-json/mdi": "^1.2.3",
