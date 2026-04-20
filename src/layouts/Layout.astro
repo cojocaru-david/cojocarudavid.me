@@ -1,7 +1,7 @@
 ---
 import Link from "@components/Link.astro";
+import { Font } from "astro:assets";
 import { author, defaultMeta } from "@data/socials";
-import "@fontsource-variable/montserrat";
 import PostHog from "../components/posthog.astro";
 import Footer from "@components/Footer.astro";
 import "../styles/global.css";
@@ -28,6 +28,7 @@ const {
   lastmod,
 } = Astro.props;
 
+const pageTitle = title || defaultMeta.title;
 const ogImageURL = new URL(ogImage.src, Astro.site).href;
 const canonicalURL = new URL(Astro.url).href;
 const date = pubDate || lastmod || new Date();
@@ -47,13 +48,14 @@ const navigation = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title || defaultMeta.title}</title>
+    <Font cssVariable="--font-montserrat" preload />
+    <title>{pageTitle}</title>
     <link rel="canonical" href={canonicalURL} />
-    <meta name="title" content={title} />
+    <meta name="title" content={pageTitle} />
     <meta name="description" content={description} />
     <meta property="og:type" content="blog" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:site_name" content={author} />
@@ -62,7 +64,7 @@ const navigation = [
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="https://cojocarudavid.me" />
     <meta name="twitter:creator" content={author} />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
     <meta name="twitter:image:alt" content={ogImage.alt} />
@@ -70,8 +72,8 @@ const navigation = [
     <meta name="theme-color" content="#3B82F6" />
     <meta name="msapplication-TileColor" content="#3B82F6" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="apple-mobile-web-app-title" content={title} />
-    <meta name="application-name" content={title} />
+    <meta name="apple-mobile-web-app-title" content={pageTitle} />
+    <meta name="application-name" content={pageTitle} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
@@ -291,7 +293,7 @@ const navigation = [
     </script>
 
     <!-- Analytics script -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVK59XQK72"
+    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-QVK59XQK72"
     ></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];

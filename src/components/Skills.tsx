@@ -6,7 +6,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 import {
   SiHtml5,
   SiJavascript,
-  SiCss3,
+  SiCss,
   SiPhp,
   SiAstro,
   SiTailwindcss,
@@ -31,7 +31,7 @@ import { FileCode, LucideAppWindow, Code } from "lucide-react";
 const iconMap: { [key: string]: IconType } = {
   "mdi:language-html5": SiHtml5,
   "mdi:language-javascript": SiJavascript,
-  "mdi:language-css3": SiCss3,
+  "mdi:language-css3": SiCss,
   "mdi:language-php": SiPhp,
   "simple-icons:astro": SiAstro,
   "mdi:tailwind": SiTailwindcss,

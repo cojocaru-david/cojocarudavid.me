@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
 import fs from "fs";
 import path from "path";
+import type { ReactNode } from "react";
 
 const MontserratRegular = fs.readFileSync(
   path.resolve("./src/assets/_montserrat_regular.ttf")
@@ -61,7 +62,7 @@ export async function GET(context: APIContext) {
     </div>
   `;
 
-  const svg = await satori(markup, {
+  const svg = await satori(markup as unknown as ReactNode, {
     fonts: [
       {
         name: "Montserrat",
@@ -85,11 +86,14 @@ export async function GET(context: APIContext) {
     },
   }).render();
 
-  return new Response(image.asPng(), {
+  const png = image.asPng();
+  const body = new Uint8Array(png);
+
+  return new Response(body, {
     headers: {
       "Content-Type": "image/png",
       "Cache-Control": "public, max-age=31536000, immutable",
-      "Content-Length": image.asPng().length.toString(),
+      "Content-Length": png.byteLength.toString(),
       "Surrogate-Key": tags.join(" "),
       "Query-String-Hash": "image",
       "Cache-Tag": "image",
