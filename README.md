@@ -44,7 +44,7 @@
 
 Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) and npm.
+- [Node.js](https://nodejs.org/) 22 or newer and npm.
 - [Git](https://git-scm.com/).
 
 ### Installation Steps
@@ -90,6 +90,14 @@ Generate a production-ready build:
 
 ```sh
 npm run build
+```
+
+### Project Checks
+
+Run Astro's type/content checks:
+
+```sh
+npm run check
 ```
 
 ---

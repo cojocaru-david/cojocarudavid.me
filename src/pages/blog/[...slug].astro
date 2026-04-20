@@ -6,7 +6,7 @@ import { render } from "astro:content";
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
-    params: { slug: post.data.slug },
+    params: { slug: post.id },
     props: post,
   }));
 }
@@ -14,8 +14,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
-const { title, slug, description, pubDate, heroAlt, updatedDate, tags } =
-  post.data;
+const { title, description, pubDate, heroAlt, updatedDate, tags } = post.data;
 const { Content } = await render(post);
 ---
 
@@ -24,7 +23,7 @@ const { Content } = await render(post);
   pubDate={pubDate}
   imageAlt={heroAlt}
   description={description}
-  url={slug}
+  url={post.id}
   updatedDate={updatedDate}
   tags={tags}
 >

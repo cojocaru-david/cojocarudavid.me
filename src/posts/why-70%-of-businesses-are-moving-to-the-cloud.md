@@ -1,6 +1,6 @@
 ---
 title: "Why 70% of businesses are moving to the cloud"
-slug: "why-70%-of-businesses-are-moving-to-the-cloud"
+slug: "why-70-percent-of-businesses-are-moving-to-the-cloud"
 
 heroAlt: "Why 70% of Businesses Are Moving to the Cloud visual cover image"
 description: "Explore why 70% of businesses are moving to the cloud in this detailed guide, offering insights, strategies, and practical tips to enhance your understanding and application of the topic."

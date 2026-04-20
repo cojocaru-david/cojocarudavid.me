@@ -1,6 +1,6 @@
 ---
 title: "How 80% of companies are using ai today"
-slug: "how-80%-of-companies-are-using-ai-today"
+slug: "how-80-percent-of-companies-are-using-ai-today"
 
 heroAlt: "How 80% of Companies Are Using AI Today visual cover image"
 description: "Explore how 80% of companies are using ai today in this detailed guide, offering insights, strategies, and practical tips to enhance your understanding and application of the topic."
